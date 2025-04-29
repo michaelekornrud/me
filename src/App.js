@@ -3,6 +3,7 @@ import './css/App.css';
 import norwayFlag from './images/norway.png';
 import ukFlag from './images/uk.jpeg';
 import translations from './utils/translations';
+import experience from './utils/experience';
 import githubLogo from './images/github-emoji.png';
 import linkedinLogo from './images/linkedin-icon.png';
 import fullLogo from './images/full-logo.png';
@@ -39,7 +40,6 @@ function LanguageToggle({ lang, setLang }) {
   );
 }
 
-// eslint-disable-next-line 
 function ThemeToggle({ theme, setTheme, t }) {
   return (
     <button
@@ -74,9 +74,9 @@ const Hero = React.forwardRef(({ t }, ref) => {
         </div>
         <nav className="main-nav">
           <ul>
-            <li><a href="#services">{t.nav.services}</a></li>
             <li><a href="#about">{t.nav.about}</a></li>
-            <li><a href="#contact">{t.nav.contact}</a></li>
+            <li><a href="#expertise">{t.nav.expertise}</a></li>
+            <li><a href="#experience">{t.nav.experience}</a></li>
           </ul>
         </nav>
       </div>
@@ -84,16 +84,17 @@ const Hero = React.forwardRef(({ t }, ref) => {
   );
 });
 
-function Services({ sectionRef, t }) {
+function Expertise({ sectionRef, t }) {
   return (
-    <section id="services" ref={sectionRef}>
+    <section id="expertise" ref={sectionRef}>
       <h2>{t.title}</h2>
-      <div className="service-list">
-        {t.items.map((service) => (
-          <div className="service" key={service.title}>
-            <h3>{service.title}</h3>
+      <p>{t.desc}</p>
+      <div className="expertise-list">
+        {t.items.map((item) => (
+          <div className="expertise-item" key={item.title}>
+            <h3>{item.title}</h3>
             <div className="technology-list">
-              {service.technologies.map((tech) => (
+              {item.technologies.map((tech) => (
                 <span key={tech} className="technology-tag">{tech}</span>
               ))}
             </div>
@@ -104,24 +105,69 @@ function Services({ sectionRef, t }) {
   );
 }
 
-function About({ sectionRef, t }) {
+function About({ sectionRef, t, contactT }) {
   return (
     <section id="about" ref={sectionRef}>
       <h2>{t.title}</h2>
-      <p>{t.desc}</p>
+      <div className="about-content">
+        <img src={require('./images/mek.png')} alt="Michael Ekornrud" className="about-image" />
+        <div className="about-sections">
+          <div className="about-section">
+            <h3 className="about-section-title">{t.aboutTitle}</h3>
+            <p>{t.desc}</p>
+          </div>
+          <div className="about-section">
+            <h3 className="about-section-title about-contact-title">{contactT.title}</h3>
+            <p>{contactT.desc}</p>
+            <div className="contact-details">
+              <div className="contact-item">
+                <span className="contact-label">{contactT.email}:</span>
+                <a href={`mailto:${contactT.emailValue}`}>{contactT.emailValue}</a>
+              </div>
+              <div className="contact-item">
+                <span className="contact-label">{contactT.phone}:</span>
+                <a href={`tel:${contactT.phoneValue.replace(/\s/g, '')}`}>{contactT.phoneValue}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
 
-function Contact({ sectionRef, t }) {
+function Experience({ sectionRef, t }) {
   return (
-    <section id="contact" ref={sectionRef}>
+    <section id="experience" ref={sectionRef}>
       <h2>{t.title}</h2>
-      <p>{t.desc}</p>
-      <ul>
-        <li>{t.email}: <a href={`mailto:${t.emailValue}`}>{t.emailValue}</a></li>
-        <li>{t.phone}: <a href={`tel:${t.phoneValue.replace(/\s/g, '')}`}>{t.phoneValue}</a></li>
-      </ul>
+      <div className="experience-list">
+        <h3 className="experience-section-title">{t.experienceTitle}</h3>
+        {t.experienceItems.map((item) => (
+          <div className="experience-item" key={item.title + item.date}>
+            <div className="experience-header">
+              <h4>{item.title}</h4>
+              <span className="experience-date">{item.date}</span>
+            </div>
+            <div className="experience-details">
+              <div className="company">{item.company}</div>
+              <div className="role">{item.role}</div>
+            </div>
+          </div>
+        ))}
+        
+        <h3 className="experience-section-title experience-education-title">{t.educationTitle}</h3>
+        {t.educationItems.map((item) => (
+          <div className="experience-item" key={item.title + item.date}>
+            <div className="experience-header">
+              <h4>{item.title}</h4>
+              <span className="experience-date">{item.date}</span>
+            </div>
+            <div className="experience-details">
+              <div className="company">{item.company}</div>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
@@ -179,20 +225,20 @@ function ScrollToTop({ lang }) {
 
 function App() {
   const [lang, setLang] = useState('no');
-  // eslint-disable-next-line 
   const [theme, setTheme] = useState('light');
   const [isHeroVisible, setIsHeroVisible] = useState(true);
 
   const heroT = translations.hero[lang];
-  const servicesT = translations.services[lang];
+  const expertiseT = translations.expertise[lang];
   const aboutT = translations.about[lang];
+  const experienceT = experience[lang];
   const contactT = translations.contact[lang];
-  // eslint-disable-next-line 
   const themeT = translations.theme[lang];
 
   const heroRef = useRef(null);
-  const servicesRef = useRef(null);
+  const expertiseRef = useRef(null);
   const aboutRef = useRef(null);
+  const experienceRef = useRef(null);
   const contactRef = useRef(null);
 
   useEffect(() => {
@@ -242,7 +288,7 @@ function App() {
       rootMargin: '-10% 0px' // Litt margin for å unngå for tidlig trigger
     });
 
-    [servicesRef, aboutRef, contactRef].forEach(ref => {
+    [expertiseRef, aboutRef, experienceRef, contactRef].forEach(ref => {
       if (ref.current) {
         ref.current.classList.add('fade-init');
         observer.observe(ref.current);
@@ -250,12 +296,13 @@ function App() {
     });
 
     return () => observer.disconnect();
-  }, [servicesRef, aboutRef, contactRef]);
+  }, [expertiseRef, aboutRef, experienceRef, contactRef]);
 
   return (
     <div className="App" onClick={handleAnchorClick}>
       <div className="top-right-controls">
         <LanguageToggle lang={lang} setLang={setLang} />
+        <ThemeToggle theme={theme} setTheme={setTheme} t={themeT} />
       </div>
       <div className="header-container">
         <Hero t={heroT} ref={heroRef} />
@@ -264,15 +311,15 @@ function App() {
         <nav className="sticky-nav">
           <ul>
             <li><a href="#about">{heroT.nav.about}</a></li>
-            <li><a href="#services">{heroT.nav.services}</a></li>
-            <li><a href="#contact">{heroT.nav.contact}</a></li>
+            <li><a href="#expertise">{heroT.nav.expertise}</a></li>
+            <li><a href="#experience">{heroT.nav.experience}</a></li>
           </ul>
         </nav>
       )}
       <main>
-        <About sectionRef={aboutRef} t={aboutT} />
-        <Services sectionRef={servicesRef} t={servicesT} />
-        <Contact sectionRef={contactRef} t={contactT} />
+        <About sectionRef={aboutRef} t={aboutT} contactT={contactT} />
+        <Expertise sectionRef={expertiseRef} t={expertiseT} />
+        <Experience sectionRef={experienceRef} t={experienceT} />
       </main>
       <Footer />
       <ScrollToTop lang={lang} />

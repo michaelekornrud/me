@@ -16,7 +16,7 @@ body {
 
 main {
     width: 100%;
-    padding: 2rem 1rem;
+    padding: 0 1rem;
     box-sizing: border-box;
     background: transparent;
 }
@@ -24,13 +24,13 @@ main {
 main section {
     width: 100%;
     max-width: 800px;
-    min-height: 100vh;
+    min-height: calc(100vh - 120px);
     scroll-snap-align: start;
     scroll-snap-stop: always;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
+    justify-content: flex-start;
+    margin: 2rem auto;
     padding: 2.5rem;
     background: #fff;
     border-radius: 10px;
@@ -108,7 +108,7 @@ header {
 
 /* Fjerner duplisert main section regel */
 
-.service-list {
+.expertise-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
@@ -117,7 +117,7 @@ header {
     box-sizing: border-box;
 }
 
-.service {
+.expertise-item {
     box-sizing: border-box;
     background: #ffffff;
     border-radius: 12px;
@@ -127,12 +127,12 @@ header {
     color: #222;
 }
 
-.service:hover {
+.expertise-item:hover {
     transform: translateY(-4px);
     box-shadow: rgba(17, 12, 46, 0.15) 0px 8px 32px, rgba(17, 12, 46, 0.1) 0px 4px 16px;
 }
 
-.service h3 {
+.expertise-item h3 {
     color: #2d3e50;
     margin-bottom: 1.5rem;
     font-size: 1.2rem;
@@ -146,7 +146,7 @@ header {
 }
 
 .technology-tag {
-    background: #f8fafc;
+    background: #f1f5f9;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -156,7 +156,7 @@ header {
 }
 
 .technology-tag:hover {
-    background: #f1f5f9;
+    background: #badbfb;
     transform: translateY(-1px);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
 }
@@ -184,6 +184,15 @@ header {
     font-size: 1.1rem;
     transition: color 0.2s;
     white-space: nowrap;
+}
+
+body.dark-mode .main-nav a {
+    color: #e2e8f0;
+}
+
+body.dark-mode .main-nav a:hover {
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .sticky-nav {
@@ -219,9 +228,6 @@ header {
     color: #4e6e8e;
 }
 
-body.dark-mode .sticky-nav {
-    background: #232a34;
-}
 
 body.dark-mode .sticky-nav a {
     color: #e0e6ed;
@@ -291,6 +297,13 @@ body.dark-mode .sticky-nav a:hover {
         width: 70vw;
         max-width: 320px;
     }
+    .about-image {
+        float: none;
+        display: block;
+        margin: 0 auto 2rem;
+        width: 100%;
+        max-width: 300px;
+    }
 }
 
 footer {
@@ -359,19 +372,24 @@ a:hover {
 }
 
 body.dark-mode {
-    background: #181c22;
-    color: #e0e6ed;
+    background: #0f172a;
+    color: #e2e8f0;
 }
 
 body.dark-mode main {
-    background: #232a34;
-    color: #e0e6ed;
+    background: transparent;
+    color: #e2e8f0;
+}
+
+body.dark-mode main section {
+    background: #1e293b;
+    color: #e2e8f0;
 }
 
 body.dark-mode header,
 body.dark-mode .hero {
-    background: linear-gradient(120deg, #181c22 60%, #232a34 100%);
-    color: #e0e6ed;
+    background: linear-gradient(120deg, #8abff7 30%, #4e6e8e 100%);
+    color: #f1f5f9;
 }
 
 body.dark-mode .cta-btn {
@@ -384,13 +402,30 @@ body.dark-mode .cta-btn:hover {
     color: #232a34;
 }
 
-body.dark-mode .service {
-    background: #232a34;
+body.dark-mode .expertise-item {
+    background: #1e293b;
+    color: #e2e8f0;
+    box-shadow: rgba(255, 255, 255, 0.03) 0px 4px 16px, rgba(255, 255, 255, 0.01) 0px 8px 32px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .expertise-item h3 {
+    color: #e2e8f0;
+}
+
+body.dark-mode .expertise-item:hover {
+    box-shadow: rgba(255, 255, 255, 0.06) 0px 8px 32px, rgba(255, 255, 255, 0.04) 0px 4px 16px;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .technology-tag {
+    background: rgba(255, 255, 255, 0.05);
     color: #e0e6ed;
 }
 
-body.dark-mode .service:hover {
-    box-shadow: 0 4px 16px rgba(224,230,237,0.10);
+body.dark-mode .technology-tag:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
 }
 
 body.dark-mode footer {
@@ -458,4 +493,177 @@ body.dark-mode .scroll-to-top:hover {
     flex-shrink: 0;
     position: relative;
     z-index: 2;
+}
+
+.about-content {
+    position: relative;
+    overflow: hidden;
+    padding: 1rem 0;
+}
+
+.about-image {
+    float: right;
+    width: 280px;
+    height: auto;
+    margin: 0.5rem 0 1.5rem 2.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-image:hover {
+    transform: translateY(-4px);
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 8px 32px, rgba(17, 12, 46, 0.1) 0px 4px 16px;
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.experience-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: rgba(17, 12, 46, 0.1) 0px 4px 16px, rgba(17, 12, 46, 0.05) 0px 8px 32px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.experience-item:hover {
+    transform: translateY(-4px);
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 8px 32px, rgba(17, 12, 46, 0.1) 0px 4px 16px;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.experience-header h3 {
+    margin: 0;
+    color: #2d3e50;
+    font-size: 1.2rem;
+}
+
+.experience-date {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.experience-details {
+    color: #475569;
+}
+
+.experience-details .company {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.experience-details .role {
+    font-size: 0.95rem;
+}
+
+body.dark-mode .experience-item {
+    background: #1e293b;
+    color: #e2e8f0;
+    box-shadow: rgba(255, 255, 255, 0.03) 0px 4px 16px, rgba(255, 255, 255, 0.01) 0px 8px 32px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .experience-item:hover {
+    box-shadow: rgba(255, 255, 255, 0.06) 0px 8px 32px, rgba(255, 255, 255, 0.04) 0px 4px 16px;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .experience-date {
+    color: #94a3b8;
+}
+
+body.dark-mode .experience-details .company {
+    color: #e2e8f0;
+}
+
+body.dark-mode .experience-details .role {
+    color: #94a3b8;
+}
+
+body.dark-mode .experience-header h3 {
+    color: #e2e8f0;
+}
+
+body.dark-mode .experience-date {
+    color: #94a3b8;
+}
+
+body.dark-mode .experience-details {
+    color: #cbd5e1;
+}
+
+.experience-section-title {
+    color: #2d3e50;
+    font-size: 1.4rem;
+    margin: 2rem 0 1.5rem;
+}
+
+.experience-education-title {
+    margin-top: 3rem;
+}
+
+body.dark-mode .experience-section-title {
+    color: #e2e8f0;
+}
+
+.experience-item h4 {
+    margin: 0;
+    color: #2d3e50;
+    font-size: 1.2rem;
+}
+
+body.dark-mode .experience-item h4 {
+    color: #e2e8f0;
+}
+
+.about-sections {
+    margin-top: 1rem;
+}
+
+.about-section {
+    margin-bottom: 2rem;
+}
+
+.about-section-title {
+    color: #2d3e50;
+    font-size: 1.4rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.about-contact-title {
+    margin-top: 2.5rem;
+}
+
+.contact-details {
+    margin-top: 1.5rem;
+}
+
+.contact-item {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.contact-label {
+    color: #64748b;
+    font-weight: 500;
+}
+
+body.dark-mode .about-section-title {
+    color: #e2e8f0;
+}
+
+body.dark-mode .contact-label {
+    color: #94a3b8;
 }

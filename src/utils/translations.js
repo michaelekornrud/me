@@ -5,8 +5,9 @@ const translations = {
       desc: "Consultant, developer and problem solver",
       btn: "Contact me",
       nav: {
-        services: "Services",
+        expertise: "Technical Expertise",
         about: "About",
+        experience: "Experience",
         contact: "Contact"
       }
     },
@@ -15,40 +16,41 @@ const translations = {
       desc: "Konsulent, utvikler og problemløser",
       btn: "Kontakt meg",
       nav: {
-        services: "Tjenester",
+        expertise: "Teknisk Ekspertise",
         about: "Om meg",
+        experience: "Erfaring",
         contact: "Kontakt"
       }
     }
   },
-  services: {
+  expertise: {
     en: {
       title: "Technical Expertise",
       desc: "I have a broad range of technical skills and experience, including:",
       items: [
         {
-          title: "Frontend development",
+          title: "Frontend Development",
           technologies: ["JavaScript", "React", "HTML/CSS"]
         },
         {
-          title: "Backend development",
-          technologies: ["Java", "Python", "C# .NET"]
+          title: "Backend Development",
+          technologies: ["Java", "Python"]
         },
         {
-          title: "Databases and database tools",
+          title: "Databases & Tools",
           technologies: ["PostgreSQL", "MongoDB", "MySQL", "IMB DB2", "JetBrains DataGrip", "Oracle SQL Developer", "IBM DataStudio"]
         },
         {
-          title: "Frameworks and libraries",
-          technologies: ["Spring Boot", "REST", "OpenAPI", "Swagger", "JUnit", "Mockito", "TensorFlow", "Pandas", "NumPy", "NumPy", "Matplotlib"]
+          title: "Frameworks & Libraries",
+          technologies: ["Spring Boot", "REST", "OpenAPI", "Swagger", "JUnit", "Mockito", "TensorFlow", "Pandas", "NumPy", "Matplotlib"]
         },
         {
           title: "DevOps",
           technologies: ["Git", "Docker", "Kubernetes", "CI/CD", "Dev Containers", "Maven"]
         },
         {
-          title: "Tools",
-          technologies: ["Jira", "Confluence", "Jenkins", "GitHub", "GitLab", "Bitbucket", "Azure DevOps", "Postman"]
+          title: "Development Tools",
+          technologies: ["Jira", "Confluence", "Jenkins", "GitHub", "GitLab", "Bitbucket", "Azure DevOps", "Postman", "JetBrains IntelliJ", "Visual Studio Code", "PyCharm"]
         }
       ]
     },
@@ -62,34 +64,36 @@ const translations = {
         },
         {
           title: "Backend-utvikling",
-          technologies: ["Java", "Python", "C# .NET"]
+          technologies: ["Java", "Python"]
         },
         {
-          title: "Databaser og databaseverktøy",
+          title: "Databaser & Verktøy",
           technologies: ["PostgreSQL", "MongoDB", "MySQL", "IMB DB2", "JetBrains DataGrip", "Oracle SQL Developer", "IBM DataStudio"]
         },
         {
-          title: "Rammeverk og biblioteker",
-          technologies: ["Spring Boot", "REST", "OpenAPI", "Swagger", "JUnit", "Mockito", "TensorFlow", "Pandas", "NumPy", "NumPy", "Matplotlib"]
+          title: "Rammeverk & Biblioteker",
+          technologies: ["Spring Boot", "REST", "OpenAPI", "Swagger", "JUnit", "Mockito", "TensorFlow", "Pandas", "NumPy", "Matplotlib"]
         },
         {
           title: "DevOps",
           technologies: ["Git", "Docker", "Kubernetes", "CI/CD", "Dev Containers", "Maven"]
         },
         {
-          title: "Verktøy",
-          technologies: ["Jira", "Confluence", "Jenkins", "GitHub", "GitLab", "Bitbucket", "Azure DevOps", "Postman"]
+          title: "Utviklingsverktøy",
+          technologies: ["Jira", "Confluence", "Jenkins", "GitHub", "GitLab", "Bitbucket", "Azure DevOps", "Postman", "JetBrains IntelliJ", "Visual Studio Code", "PyCharm"]
         }
       ]
     }
   },
   about: {
     en: {
-      title: "About me",
+      title: "About & Contact",
+      aboutTitle: "About me",
       desc: "I am an engaged consultant with broad experience in technology, development and advisory. My goal is to deliver solutions that provide value and make everyday life easier for my clients."
     },
     no: {
-      title: "Om meg",
+      title: "Om meg & Kontakt",
+      aboutTitle: "Om meg",
       desc: "Jeg er en engasjert konsulent med bred erfaring innen teknologi, utvikling og rådgivning. Mitt mål er å levere løsninger som gir verdi og gjør hverdagen enklere for mine kunder."
     }
   },
