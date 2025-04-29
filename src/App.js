@@ -237,7 +237,7 @@ function ScrollToTop({ lang }) {
 
 function App() {
   const [lang, setLang] = useState('no');
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const [isHeroVisible, setIsHeroVisible] = useState(true);
 
   const heroT = translations.hero[lang];
