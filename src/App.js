@@ -106,6 +106,8 @@ function Expertise({ sectionRef, t }) {
 }
 
 function About({ sectionRef, t, contactT }) {
+  const paragraphs = t.desc.split('\n\n');
+  
   return (
     <section id="about" ref={sectionRef}>
       <h2>{t.title}</h2>
@@ -113,11 +115,11 @@ function About({ sectionRef, t, contactT }) {
         <img src={require('./images/mek.png')} alt="Michael Ekornrud" className="about-image" />
         <div className="about-sections">
           <div className="about-section">
-            <h3 className="about-section-title">{t.aboutTitle}</h3>
-            <p>{t.desc}</p>
+            {paragraphs.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
           </div>
           <div className="about-section">
-            <h3 className="about-section-title about-contact-title">{contactT.title}</h3>
             <p>{contactT.desc}</p>
             <div className="contact-details">
               <div className="contact-item">
@@ -128,6 +130,16 @@ function About({ sectionRef, t, contactT }) {
                 <span className="contact-label">{contactT.phone}:</span>
                 <a href={`tel:${contactT.phoneValue.replace(/\s/g, '')}`}>{contactT.phoneValue}</a>
               </div>
+              <div className="social-links">
+              <a href="https://www.linkedin.com/in/michael-ekornrud" target="_blank" rel="noopener noreferrer" style={{display: 'inline-flex', alignItems: 'center'}}>
+                <img src={linkedinLogo} alt="LinkedIn" style={{width: '22px', height: '22px', borderRadius: '50%', marginRight: '4px', background: '#fff'}} />
+                LinkedIn
+              </a>
+              <a href="https://github.com/michaelekornrud" target="_blank" rel="noopener noreferrer" style={{marginLeft: '12px', display: 'inline-flex', alignItems: 'center'}}>
+                <img src={githubLogo} alt="GitHub" style={{width: '22px', height: '22px', borderRadius: '50%', marginRight: '4px', background: '#fff'}} />
+                GitHub
+              </a>
+            </div>
             </div>
           </div>
         </div>

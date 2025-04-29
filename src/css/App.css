@@ -505,7 +505,8 @@ body.dark-mode .scroll-to-top:hover {
     float: right;
     width: 280px;
     height: auto;
-    margin: 0.5rem 0 1.5rem 2.5rem;
+    margin: 0 0 1.5rem 2.5rem;
+    border-radius: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -628,11 +629,42 @@ body.dark-mode .experience-item h4 {
 }
 
 .about-sections {
-    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 65ch;
+}
+
+.about-section p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.about-content {
+    position: relative;
+}
+
+.about-image {
+    float: right;
+    width: 280px;
+    height: auto;
+    margin: 0 0 1.5rem 2.5rem;
+    border-radius: 12px;
+}
+
+@media (max-width: 700px) {
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-sections {
+        max-width: 100%;
+    }
 }
 
 .about-section {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .about-section-title {
@@ -666,4 +698,17 @@ body.dark-mode .about-section-title {
 
 body.dark-mode .contact-label {
     color: #94a3b8;
+}
+
+.about-section p {
+    white-space: pre-line;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    max-width: 65ch;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
 }
