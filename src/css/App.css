@@ -41,7 +41,6 @@ main section {
     margin: 0 auto;
     padding: 2.5rem;
     background: #fff;
-    border-radius: 10px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 
@@ -114,8 +113,6 @@ header {
     background: #2d3e50;
     color: #fff;
 }
-
-/* Fjerner duplisert main section regel */
 
 .expertise-list {
     display: grid;
@@ -206,6 +203,18 @@ body.dark-mode .main-nav a:hover {
 
 .sticky-nav {
     display: none; /* Start med å skjule sticky-nav */
+}
+
+.contact-item {
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0;
+}
+
+.social-links {
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0;
 }
 
 @media (min-width: 1325px) {
@@ -697,23 +706,139 @@ body.dark-mode .scroll-to-top:hover {
     box-shadow: rgba(17, 12, 46, 0.15) 0px 8px 32px;
 }
 
-@media (max-width: 1024px) {
-    .about-content {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .about-sections {
-        order: 2;
-        max-width: 100%;
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.experience-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: rgba(17, 12, 46, 0.1) 0px 4px 16px, rgba(17, 12, 46, 0.05) 0px 8px 32px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.experience-item:hover {
+    transform: translateY(-4px);
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 8px 32px, rgba(17, 12, 46, 0.1) 0px 4px 16px;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.experience-header h3 {
+    margin: 0;
+    color: #2d3e50;
+    font-size: 1.2rem;
+}
+
+.experience-header h4 {
+    margin: 0.5rem 0 0.5rem 0;
+    color: #2d3e50;
+    font-size: 1.1rem;
+}
+
+.experience-date {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.experience-details {
+    color: #475569;
+}
+
+.experience-details .company {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.experience-details .role {
+    font-size: 0.95rem;
+}
+
+.experience-section-title {
+    color: #2d3e50;
+    font-size: 1.4rem;
+    margin: 2rem 0 1.5rem;
+}
+
+.experience-education-title {
+    margin-top: 3rem;
+}
+
+/* Dark mode styles */
+body.dark-mode .experience-item {
+    background: #1e293b;
+    color: #e2e8f0;
+    box-shadow: rgba(255, 255, 255, 0.03) 0px 4px 16px, rgba(255, 255, 255, 0.01) 0px 8px 32px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .experience-item:hover {
+    box-shadow: rgba(255, 255, 255, 0.06) 0px 8px 32px, rgba(255, 255, 255, 0.04) 0px 4px 16px;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .experience-header h3 {
+    color: #e2e8f0;
+}
+
+body.dark-mode .experience-header h4 {
+    color: #e2e8f0;
+}
+
+body.dark-mode .experience-date {
+    color: #94a3b8;
+}
+
+body.dark-mode .experience-details {
+    color: #cbd5e1;
+}
+
+body.dark-mode .experience-details .company {
+    color: #e2e8f0;
+}
+
+body.dark-mode .experience-details .role {
+    color: #94a3b8;
+}
+
+body.dark-mode .experience-section-title {
+    color: #e2e8f0;
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+    main {
+        padding: 0;
+        max-width: 800px;
+        margin: 0 auto;
+        width: 100%;
     }
 
-    .about-image {
-        order: 1;
-        float: none;
-        display: block;
-        margin: 0 auto 2rem;
-        width: 100%;
-        max-width: 280px;
+    main section {
+        margin: 1rem auto;
+        width: calc(100% - 4rem);
+        padding: 2rem;
+    }
+
+    .hero-content.hero-row {
+        padding: 0 2rem;
+        width: calc(100% - 4rem);
+        margin: 0 auto;
     }
 }
