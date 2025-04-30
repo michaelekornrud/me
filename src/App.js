@@ -252,7 +252,6 @@ function App() {
   const expertiseRef = useRef(null);
   const aboutRef = useRef(null);
   const experienceRef = useRef(null);
-  const contactRef = useRef(null);
 
   useEffect(() => {
     document.body.classList.toggle('dark-mode', theme === 'dark');
