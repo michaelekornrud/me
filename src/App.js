@@ -198,9 +198,10 @@ function Footer() {
           GitHub
         </a>
       </div>
+      <small>Org nr: 827 157 562</small>
       <br/>
-      <small>&copy; 2024 Michael Ekornrud </small>
-      
+      <small>&copy; 2024 Michael Ekornrud - All rights reserved. </small>
+      <br/>
     </footer>
   );
 }
@@ -284,31 +285,7 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    const observer = new window.IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
-          // La animasjonen kjøre på nytt hver gang seksjonen kommer i view
-          entry.target.classList.remove('fade-init');
-          void entry.target.offsetWidth; // Trigger reflow
-          entry.target.classList.add('fade-init');
-        }
-      });
-    }, { 
-      threshold: 0.5, // Trigger når halve seksjonen er synlig
-      rootMargin: '-10% 0px' // Litt margin for å unngå for tidlig trigger
-    });
-
-    [expertiseRef, aboutRef, experienceRef, contactRef].forEach(ref => {
-      if (ref.current) {
-        ref.current.classList.add('fade-init');
-        observer.observe(ref.current);
-      }
-    });
-
-    return () => observer.disconnect();
-  }, [expertiseRef, aboutRef, experienceRef, contactRef]);
+  // Removed fade-in effect
 
   return (
     <div className="App" onClick={handleAnchorClick}>
