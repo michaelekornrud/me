@@ -44,7 +44,7 @@ jobs:
       if: success()
 
     - name: Run tests
-      run: npm test
+      run: npm run test
       if: success()
 
     - name: Build
