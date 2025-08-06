@@ -43,7 +43,18 @@ cd "$(dirname "$0")"
 
 print_header
 
-# 1. Code Formatting with Prettier
+# 1. Install/Update Dependencies
+print_step "Installing/updating npm dependencies..."
+if npm install; then
+    print_success "Dependencies installed successfully"
+else
+    print_error "npm install failed"
+    exit 1
+fi
+
+echo ""
+
+# 2. Code Formatting with Prettier
 print_step "Running Prettier code formatting..."
 if npx prettier --write "src/**/*.{js,jsx,css,scss,json,md}" --no-error-on-unmatched-pattern; then
     print_success "Code formatting completed successfully"
