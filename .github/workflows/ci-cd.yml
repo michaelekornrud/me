@@ -44,7 +44,7 @@ jobs:
       if: success()
 
     - name: Run tests
-      run: npm run test
+      run: npm run test -- --watchAll=false
       if: success()
 
     - name: Build
