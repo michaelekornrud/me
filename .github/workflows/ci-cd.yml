@@ -19,6 +19,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Verify package-lock.json is in sync with package.json
+      run: npx lockfile-lint --path package-lock.json --validate-https --allowed-hosts npm
+      
     - name: Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -27,6 +30,14 @@ jobs:
 
     - name: Install dependencies
       run: npm ci
+
+    - name: Run Prettier check
+      run: npx prettier --check "src/**/*.{js,jsx,ts,tsx,css,md}"
+      if: success()
+
+    - name: Run ESLint
+      run: npx eslint . --ext .js,.jsx,.ts,.tsx
+      if: success()
 
     - name: Run linting
       run: npm run lint

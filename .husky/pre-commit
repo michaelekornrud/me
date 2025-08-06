@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🚀 Starting pre-commit checks..."
+
+# Run lint-staged for code formatting and linting
+echo "\n📝 Running code formatting and linting..."
+npx lint-staged || {
+    echo "❌ Code formatting and linting failed"
+    exit 1
+}
+
+# Run tests without watching
+echo "\n🧪 Running tests..."
+npm run test:ci || {
+    echo "❌ Tests failed"
+    exit 1
+}
+
+echo "\n✅ All checks passed!"
