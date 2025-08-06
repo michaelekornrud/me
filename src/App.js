@@ -8,7 +8,6 @@ import githubLogo from './images/github-emoji.png';
 import linkedinLogo from './images/linkedin-icon.png';
 import fullLogo from './images/full-logo.png';
 
-
 function LanguageToggle({ lang, setLang }) {
   return (
     <button
@@ -124,11 +123,11 @@ function About({ sectionRef, t, contactT }) {
             <div className="contact-details">
               <div className="contact-item">
                 <span className="contact-label">{contactT.email}:</span>
-                <a href={`mailto:${contactT.emailValue}`}>{contactT.emailValue}</a>
+                <a href={`mailto: ${contactT.emailValue}`}>{contactT.emailValue}</a>
               </div>
               <div className="contact-item">
                 <span className="contact-label">{contactT.phone}:</span>
-                <a href={`tel:${contactT.phoneValue.replace(/\s/g, '')}`}>{contactT.phoneValue}</a>
+                <a href={`tel: ${contactT.phoneValue.replace(/\s/g, '')}`}>{contactT.phoneValue}</a>
               </div>
               <div className="social-links">
               <a href="https://www.linkedin.com/in/michael-ekornrud" target="_blank" rel="noopener noreferrer" style={{display: 'inline-flex', alignItems: 'center'}}>
@@ -149,13 +148,24 @@ function About({ sectionRef, t, contactT }) {
 }
 
 function Experience({ sectionRef, t }) {
+  const [expandedJob, setExpandedJob] = useState(null);
+
+  const toggleJob = (jobId) => {
+    setExpandedJob(expandedJob === jobId ? null : jobId);
+  };
+
   return (
     <section id="experience" ref={sectionRef}>
       <h2>{t.title}</h2>
       <div className="experience-list">
         <h3 className="experience-section-title">{t.experienceTitle}</h3>
         {t.experienceItems.map((item) => (
-          <div className="experience-item" key={item.title + item.date}>
+          <div 
+            className={`experience-item ${expandedJob === item.title ? 'expanded' : ''}`}
+            key={item.title + item.date}
+            onClick={() => toggleJob(item.title)}
+            data-tooltip={t.lang === 'no' ? 'Klikk for å utvide' : 'Click to expand'}
+          >
             <div className="experience-header">
               <h4>{item.title}</h4>
               <span className="experience-date">{item.date}</span>
@@ -163,13 +173,38 @@ function Experience({ sectionRef, t }) {
             <div className="experience-details">
               <div className="company">{item.company}</div>
               <div className="role">{item.role}</div>
+              {expandedJob === item.title && (
+                <div className="experience-description">
+                  <p>{item.description}</p>
+                  {item.projects && (
+                    <div className="projects-list">
+                      <h5 className="projects-title">{t.lang === 'no' ? 'Prosjekter' : 'Projects'}</h5>
+                      {item.projects.map((project, index) => (
+                        <div key={index} className="project-item">
+                          <div className="project-header">
+                            <h6>{project.client}</h6>
+                            <span className="project-period">{project.period}</span>
+                          </div>
+                          <div className="project-role">{project.role}</div>
+                          <p className="project-description">{project.description}</p>
+                          <div className="project-technologies">
+                            {project.technologies?.map((tech, techIndex) => (
+                              <span key={techIndex} className="technology-tag">{tech}</span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         ))}
         
         <h3 className="experience-section-title experience-education-title">{t.educationTitle}</h3>
         {t.educationItems.map((item) => (
-          <div className="experience-item" key={item.title + item.date}>
+          <div className="experience-item education-item" key={item.title + item.date}>
             <div className="experience-header">
               <h4>{item.title}</h4>
               <span className="experience-date">{item.date}</span>
@@ -183,6 +218,8 @@ function Experience({ sectionRef, t }) {
     </section>
   );
 }
+
+
 
 // Footer component
 function Footer() {

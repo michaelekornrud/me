@@ -1,3 +1,41 @@
+// Technical skills and technologies
+const technicalSkills = {
+  frontend: ["JavaScript", "React", "HTML", "CSS", "PHP"],
+  backend: ["Java", "Python"],
+  databases: ["PostgreSQL", "MongoDB", "MySQL", "IMB DB2", "JetBrains DataGrip", "Oracle SQL Developer", "IBM DataStudio"],
+  frameworks: ["Spring Boot", "REST", "OpenAPI", "Swagger", "JUnit", "Mockito", "TensorFlow", "Pandas", "NumPy", "Matplotlib", "PyTest", "PyTest Benchmarks", "Ruff", "Black", "MyPy", "PiPY"],
+  devops: ["Git", "Docker", "Kubernetes", "CI/CD", "Dev Containers", "Maven", "GitHub Actions", "UV", "Poetry"],
+  tools: ["Jira", "Confluence", "Jenkins", "GitHub", "GitLab", "Bitbucket", "Azure DevOps", "Postman", "JetBrains IntelliJ", "Visual Studio Code", "PyCharm"]
+};
+
+// Category translations
+const categoryTranslations = {
+  en: {
+    frontend: "Frontend Development",
+    backend: "Backend Development",
+    databases: "Databases & Tools",
+    frameworks: "Frameworks & Libraries",
+    devops: "DevOps",
+    tools: "Development Tools"
+  },
+  no: {
+    frontend: "Frontend-utvikling",
+    backend: "Backend-utvikling",
+    databases: "Databaser & Verktøy",
+    frameworks: "Rammeverk & Biblioteker",
+    devops: "DevOps",
+    tools: "Utviklingsverktøy"
+  }
+};
+
+// Helper function to generate expertise items
+const generateExpertiseItems = (lang) => {
+  return Object.keys(technicalSkills).map(category => ({
+    title: categoryTranslations[lang][category],
+    technologies: technicalSkills[category]
+  }));
+};
+
 const translations = {
   hero: {
     en: {
@@ -27,62 +65,12 @@ const translations = {
     en: {
       title: "Technical Expertise",
       desc: "I have a broad range of technical skills and experience, including:",
-      items: [
-        {
-          title: "Frontend Development",
-          technologies: ["JavaScript", "React", "HTML/CSS"]
-        },
-        {
-          title: "Backend Development",
-          technologies: ["Java", "Python"]
-        },
-        {
-          title: "Databases & Tools",
-          technologies: ["PostgreSQL", "MongoDB", "MySQL", "IMB DB2", "JetBrains DataGrip", "Oracle SQL Developer", "IBM DataStudio"]
-        },
-        {
-          title: "Frameworks & Libraries",
-          technologies: ["Spring Boot", "REST", "OpenAPI", "Swagger", "JUnit", "Mockito", "TensorFlow", "Pandas", "NumPy", "Matplotlib"]
-        },
-        {
-          title: "DevOps",
-          technologies: ["Git", "Docker", "Kubernetes", "CI/CD", "Dev Containers", "Maven"]
-        },
-        {
-          title: "Development Tools",
-          technologies: ["Jira", "Confluence", "Jenkins", "GitHub", "GitLab", "Bitbucket", "Azure DevOps", "Postman", "JetBrains IntelliJ", "Visual Studio Code", "PyCharm"]
-        }
-      ]
+      items: generateExpertiseItems('en')
     },
     no: {
       title: "Teknisk Ekspertise",
       desc: "Jeg har et bredt spekter av tekniske ferdigheter og erfaring, inkludert:",
-      items: [
-        {
-          title: "Frontend-utvikling",
-          technologies: ["JavaScript", "React", "HTML/CSS"]
-        },
-        {
-          title: "Backend-utvikling",
-          technologies: ["Java", "Python"]
-        },
-        {
-          title: "Databaser & Verktøy",
-          technologies: ["PostgreSQL", "MongoDB", "MySQL", "IMB DB2", "JetBrains DataGrip", "Oracle SQL Developer", "IBM DataStudio"]
-        },
-        {
-          title: "Rammeverk & Biblioteker",
-          technologies: ["Spring Boot", "REST", "OpenAPI", "Swagger", "JUnit", "Mockito", "TensorFlow", "Pandas", "NumPy", "Matplotlib"]
-        },
-        {
-          title: "DevOps",
-          technologies: ["Git", "Docker", "Kubernetes", "CI/CD", "Dev Containers", "Maven"]
-        },
-        {
-          title: "Utviklingsverktøy",
-          technologies: ["Jira", "Confluence", "Jenkins", "GitHub", "GitLab", "Bitbucket", "Azure DevOps", "Postman", "JetBrains IntelliJ", "Visual Studio Code", "PyCharm"]
-        }
-      ]
+      items: generateExpertiseItems('no')
     }
   },
   about: {
