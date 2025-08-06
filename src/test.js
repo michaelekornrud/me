@@ -1,4 +1,4 @@
-const   badlyFormattedFunction    =   () =>    {
-    console.log(   "test"    )  
-    return     false;
+function     testFunction(  )   {
+    console.log(   "testing pre-commit"    )  
+    return     true;  
 }
