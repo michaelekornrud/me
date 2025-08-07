@@ -10,6 +10,10 @@ npx lint-staged || {
     exit 1
 }
 
+# Stage any changes made by lint-staged
+echo "\n📦 Staging any formatting changes..."
+git add .
+
 # Run tests without watching
 echo "\n🧪 Running tests..."
 npm run test:ci || {
