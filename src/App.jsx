@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import './css/App.css';
+import './css/mobile-improvements.css';
 import norwayFlag from './images/norway.png';
 import ukFlag from './images/uk.jpeg';
 import translations from './utils/translations';

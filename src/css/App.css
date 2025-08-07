@@ -353,6 +353,64 @@ body.dark-mode .sticky-nav a:hover {
     box-sizing: border-box;
   }
 
+  /* Bedre tekst formatting for mobile */
+  main section h2 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  main section h3 {
+    font-size: 1.35rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    word-wrap: break-word;
+  }
+
+  main section h4 {
+    font-size: 1.15rem;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    word-wrap: break-word;
+  }
+
+  main section p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.3rem;
+    text-align: left;
+    word-spacing: 0.05em;
+    letter-spacing: 0.01em;
+    hyphens: auto;
+    word-wrap: break-word;
+  }
+
+  /* Forbedret contact informasjon */
+  .contact-item {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .contact-label {
+    font-weight: 500;
+    margin-right: 0.5rem;
+  }
+
+  /* Bedre spacing for hero tekst */
+  .hero-text p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+  }
+
   .hero {
     padding: 2rem 0;
     min-height: auto;
