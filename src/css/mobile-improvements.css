@@ -3,6 +3,8 @@
 /* Forbedret typografi for alle skjermstørrelser */
 html {
   -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 
@@ -21,6 +23,7 @@ body {
     line-height: 1.3 !important;
     margin-bottom: 1.2rem !important;
     word-wrap: break-word;
+    -webkit-hyphens: auto;
     hyphens: auto;
   }
 
