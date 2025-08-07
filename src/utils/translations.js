@@ -1,7 +1,16 @@
 // Technical skills and technologies
 const technicalSkills = {
-  frontend: ['JavaScript', 'React', 'HTML', 'CSS'],
-  backend: ['Java', 'Python', 'PHP', 'Node.js', 'REST', 'OpenAPI', 'Swagger'],
+  frontend: ['JavaScript', 'React', 'HTML', 'CSS', 'ESLint', 'Prettier'],
+  backend: [
+    'Java',
+    'Python',
+    'PHP',
+    'Node.js',
+    'REST',
+    'OpenAPI',
+    'Swagger',
+    'npm',
+  ],
   databases: [
     'PostgreSQL',
     'MongoDB',
@@ -41,9 +50,6 @@ const technicalSkills = {
     'HubSpot',
     'Basware',
     'Coupa',
-    'EsLint',
-    'Prettier',
-    'npm',
   ],
 };
 
