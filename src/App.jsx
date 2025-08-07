@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import './css/App.css';
 import './css/mobile-improvements.css';
-import norwayFlag from './images/norway.png';
-import ukFlag from './images/uk.jpeg';
+import norwayFlag from './images/norway.webp';
+import ukFlag from './images/uk.webp';
 import translations from './utils/translations';
 import experience from './utils/experience';
-import githubLogo from './images/github-emoji.png';
-import linkedinLogo from './images/linkedin-icon.png';
-import fullLogo from './images/full-logo.png';
+import githubLogo from './images/github-emoji.webp';
+import linkedinLogo from './images/linkedin-icon.webp';
+import fullLogo from './images/full-logo.webp';
 
 export function LanguageToggle({ lang, setLang }) {
   return (
@@ -22,6 +22,8 @@ export function LanguageToggle({ lang, setLang }) {
         <>
           <img
             src={norwayFlag}
+            srcSet={`${norwayFlag} 1x, ${norwayFlag} 2x`}
+            sizes="(max-width: 600px) 24px, 32px"
             alt="Norwegian flag"
             className="flag-icon icon-margin"
           />
@@ -29,8 +31,14 @@ export function LanguageToggle({ lang, setLang }) {
         </>
       ) : (
         <>
-          <img src={ukFlag} alt="UK flag" className="flag-icon icon-margin" />
-          English
+        <img
+          src={ukFlag}
+          srcSet={`${ukFlag} 1x, ${ukFlag} 2x`}
+          sizes="(max-width: 600px) 24px, 32px"
+          alt="UK flag"
+          className="flag-icon icon-margin"
+        /> 
+        English
         </>
       )}
     </button>
@@ -86,7 +94,13 @@ const Hero = ({ t, forwardedRef }) => {
   return (
     <header className="hero" ref={forwardedRef}>
       <div className="hero-content hero-row">
-        <img src={fullLogo} alt="Michael Ekornrud logo" className="hero-logo" />
+        <img
+          src={fullLogo}
+          srcSet={`${fullLogo} 1x, ${fullLogo} 2x`}
+          sizes="(max-width: 600px) 80px, 120px"
+          alt="Michael Ekornrud logo"
+          className="hero-logo"
+        />
         <div className="hero-text">
           <p>{t.desc}</p>
         </div>
@@ -176,6 +190,8 @@ function About({ sectionRef, t, contactT }) {
       <div className="about-content">
         <img
           src={require('./images/mek.webp')}
+          srcSet={`${require('./images/mek.webp')} 1x, ${require('./images/mek.webp')} 2x`}
+          sizes="(max-width: 600px) 80px, 120px"
           alt="Michael Ekornrud"
           className="about-image"
         />
@@ -232,6 +248,8 @@ function About({ sectionRef, t, contactT }) {
                 >
                   <img
                     src={githubLogo}
+                    srcSet={`${githubLogo} 1x, ${githubLogo} 2x`}
+                    sizes="(max-width: 600px) 22px, 32px"
                     alt="GitHub"
                     style={{
                       width: '22px',
