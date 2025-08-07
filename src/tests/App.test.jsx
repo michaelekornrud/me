@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent, within } from '@testing-library/react';
+// eslint-disable-next-line no-unused-vars
 import App from '../App';
 
 // Mock translations

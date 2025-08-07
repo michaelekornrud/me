@@ -1,6 +1,6 @@
 {
   "name": "mekornrud",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^6.6.3",
@@ -18,8 +18,8 @@
     "test": "react-scripts test",
     "test:ci": "react-scripts test --watchAll=false --passWithNoTests",
     "eject": "react-scripts eject",
-    "lint": "eslint src --ext .js,.jsx",
-    "lint:fix": "eslint src --ext .js,.jsx --fix"
+    "lint": "eslint src/**/*.{js,jsx}",
+    "lint:fix": "eslint src/**/*.{js,jsx} --fix"
   },
   "eslintConfig": {
     "extends": [
