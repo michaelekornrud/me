@@ -1,0 +1,21 @@
+{
+  "name": "mekornrud",
+  "short_name": "mekornrud",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1976d2",
+  "description": "Portfolio PWA for mekornrud.",
+  "icons": [
+    {
+      "src": "Simple_logo.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "Simple_logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

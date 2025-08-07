@@ -8,6 +8,28 @@
       name="description"
       content="Web site created using create-react-app" />
     <link rel="apple-touch-icon" href="Simple_logo.svg" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#1976d2" />
+    <meta name="msapplication-navbutton-color" content="#1976d2" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <style>
+      :root {
+        --theme-color: #1976d2;
+      }
+      @supports not (color: color(display-p3 1 0 0)) {
+        body {
+          background-color: var(--theme-color);
+        }
+      }
+      /* Fallback for browsers that don't support theme-color meta tag */
+      @media screen {
+        html {
+          background-color: var(--theme-color);
+        }
+      }
+    </style>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -36,5 +58,18 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+      <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+              .then(reg => {
+                console.log('Service worker registered:', reg);
+              })
+              .catch(err => {
+                console.error('Service worker registration failed:', err);
+              });
+          });
+        }
+      </script>
   </body>
 </html>
