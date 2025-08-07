@@ -361,6 +361,7 @@ body.dark-mode .sticky-nav a:hover {
     text-align: center;
     font-weight: 600;
     word-wrap: break-word;
+    -webkit-hyphens: auto;
     hyphens: auto;
   }
 
@@ -387,6 +388,7 @@ body.dark-mode .sticky-nav a:hover {
     text-align: left;
     word-spacing: 0.05em;
     letter-spacing: 0.01em;
+    -webkit-hyphens: auto;
     hyphens: auto;
     word-wrap: break-word;
   }
@@ -781,8 +783,7 @@ body.dark-mode .scroll-to-top:hover {
   margin: 0 0 1.5rem 2.5rem;
   border-radius: 12px;
   box-shadow: rgba(17, 12, 46, 0.1) 0px 4px 16px;
-  shape-outside: url(../images/mek.png);
-  clip-path: inset(0);
+  shape-outside: url(../images/mek.webp);
 }
 
 /* Maintain mobile responsiveness */

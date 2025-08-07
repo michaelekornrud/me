@@ -175,7 +175,7 @@ function About({ sectionRef, t, contactT }) {
       <h2 id="about-heading">{t.title}</h2>
       <div className="about-content">
         <img
-          src={require('./images/mek.png')}
+          src={require('./images/mek.webp')}
           alt="Michael Ekornrud"
           className="about-image"
         />
