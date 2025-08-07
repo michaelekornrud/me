@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import './css/App.css';
-import norwayFlag from './images/norway.png';
-import ukFlag from './images/uk.jpeg';
+import './css/mobile-improvements.css';
 import translations from './utils/translations';
 import experience from './utils/experience';
-import githubLogo from './images/github-emoji.png';
-import linkedinLogo from './images/linkedin-icon.png';
-import fullLogo from './images/full-logo.png';
+import githubLogo from './images/github-emoji.webp';
+import linkedinLogo from './images/linkedin-icon.webp';
 
 export function LanguageToggle({ lang, setLang }) {
   return (
@@ -20,7 +18,9 @@ export function LanguageToggle({ lang, setLang }) {
       {lang === 'no' ? (
         <>
           <img
-            src={norwayFlag}
+            src={require('./images/norway.webp')}
+            srcSet={`${require('./images/norway-small.webp')} 600w, ${require('./images/norway-medium.webp')} 1200w, ${require('./images/norway-large.webp')} 2000w`}
+            sizes="(max-width: 600px) 24px, (max-width: 1200px) 32px, 48px"
             alt="Norwegian flag"
             className="flag-icon icon-margin"
           />
@@ -28,8 +28,14 @@ export function LanguageToggle({ lang, setLang }) {
         </>
       ) : (
         <>
-          <img src={ukFlag} alt="UK flag" className="flag-icon icon-margin" />
-          English
+        <img
+          src={require('./images/uk.webp')}
+          srcSet={`${require('./images/uk-small.webp')} 600w, ${require('./images/uk-medium.webp')} 1200w, ${require('./images/uk-large.webp')} 2000w`}
+          sizes="(max-width: 600px) 24px, (max-width: 1200px) 32px, 48px"
+          alt="UK flag"
+          className="flag-icon icon-margin"
+        />
+        English
         </>
       )}
     </button>
@@ -85,7 +91,16 @@ const Hero = ({ t, forwardedRef }) => {
   return (
     <header className="hero" ref={forwardedRef}>
       <div className="hero-content hero-row">
-        <img src={fullLogo} alt="Michael Ekornrud logo" className="hero-logo" />
+        <img
+          src={require('./images/full-logo.webp')}
+          srcSet={`
+            ${require('./images/full-logo-small.webp')} 600w, 
+            ${require('./images/full-logo-medium.webp')} 1200w,
+            ${require('./images/full-logo-large.webp')} 2000w`}
+          sizes="(max-width: 600px) 80px, (max-width: 1200px) 120px, 200px"
+          alt="Michael Ekornrud logo"
+          className="hero-logo"
+        />
         <div className="hero-text">
           <p>{t.desc}</p>
         </div>
@@ -174,7 +189,9 @@ function About({ sectionRef, t, contactT }) {
       <h2 id="about-heading">{t.title}</h2>
       <div className="about-content">
         <img
-          src={require('./images/mek.png')}
+          src={require('./images/mek.webp')}
+          srcSet={`${require('./images/mek-small.webp')} 600w, ${require('./images/mek-medium.webp')} 1200w, ${require('./images/mek-large.webp')} 2000w`}
+          sizes="(max-width: 600px) 80px, (max-width: 1200px) 120px, 200px"
           alt="Michael Ekornrud"
           className="about-image"
         />
@@ -207,7 +224,9 @@ function About({ sectionRef, t, contactT }) {
                   style={{ display: 'inline-flex', alignItems: 'center' }}
                 >
                   <img
-                    src={linkedinLogo}
+                    src={require('./images/linkedin-icon.webp')}
+                    srcSet={`${require('./images/linkedin-icon-small.webp')} 600w, ${require('./images/linkedin-icon-medium.webp')} 1200w, ${require('./images/linkedin-icon-large.webp')} 2000w`}
+                    sizes="(max-width: 600px) 22px, (max-width: 1200px) 32px, 48px"
                     alt="LinkedIn"
                     style={{
                       width: '22px',
@@ -230,7 +249,9 @@ function About({ sectionRef, t, contactT }) {
                   }}
                 >
                   <img
-                    src={githubLogo}
+                    src={require('./images/github-emoji.webp')}
+                    srcSet={`${require('./images/github-emoji-small.webp')} 600w, ${require('./images/github-emoji-medium.webp')} 1200w, ${require('./images/github-emoji-large.webp')} 2000w`}
+                    sizes="(max-width: 600px) 22px, (max-width: 1200px) 32px, 48px"
                     alt="GitHub"
                     style={{
                       width: '22px',
