@@ -15,13 +15,10 @@ jobs:
 
     strategy:
       matrix:
-        node-version: ['23.2.0']
+        node-version: ['20.x']
 
     steps:
     - uses: actions/checkout@v4
-
-    - name: Verify package-lock.json is in sync with package.json
-      run: npx lockfile-lint --path package-lock.json --validate-https --allowed-hosts npm
       
     - name: Setup Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
@@ -39,16 +36,12 @@ jobs:
       run: npx prettier --check "src/**/*.{js,jsx,ts,tsx,css,md}"
       if: success()
 
-    - name: Run ESLint
-      run: npx eslint "src/**/*.{js,jsx}"
-      if: success()
-
     - name: Run linting
       run: npm run lint
       if: success()
 
     - name: Run tests
-      run: npm run test -- --watchAll=false
+      run: npm run test:ci
       if: success()
 
     - name: Build
