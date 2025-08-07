@@ -1,0 +1,50 @@
+name: CI/CD
+# Updated to ensure Node.js 20 is used - force fresh run
+
+on:
+  push:
+    branches-ignore:
+      - 'master'
+  pull_request:
+    branches-ignore:
+      - 'master'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: ['20.x']
+
+    steps:
+    - uses: actions/checkout@v4
+      
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Verify Node.js version
+      run: node --version
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run Prettier check
+      run: npx prettier --check "src/**/*.{js,jsx,ts,tsx,css,md}"
+      if: success()
+
+    - name: Run linting
+      run: npm run lint
+      if: success()
+
+    - name: Run tests
+      run: npm run test:ci
+      if: success()
+
+    - name: Build
+      run: npm run build
+      if: success()
+
