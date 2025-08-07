@@ -21,9 +21,9 @@ export function LanguageToggle({ lang, setLang }) {
       {lang === 'no' ? (
         <>
           <img
-            src={norwayFlag}
-            srcSet={`${norwayFlag} 1x, ${norwayFlag} 2x`}
-            sizes="(max-width: 600px) 24px, 32px"
+            src={require('./images/norway.webp')}
+            srcSet={`${require('./images/norway-small.webp')} 600w, ${require('./images/norway-medium.webp')} 1200w, ${require('./images/norway-large.webp')} 2000w`}
+            sizes="(max-width: 600px) 24px, (max-width: 1200px) 32px, 48px"
             alt="Norwegian flag"
             className="flag-icon icon-margin"
           />
@@ -32,12 +32,12 @@ export function LanguageToggle({ lang, setLang }) {
       ) : (
         <>
         <img
-          src={ukFlag}
-          srcSet={`${ukFlag} 1x, ${ukFlag} 2x`}
-          sizes="(max-width: 600px) 24px, 32px"
+          src={require('./images/uk.webp')}
+          srcSet={`${require('./images/uk-small.webp')} 600w, ${require('./images/uk-medium.webp')} 1200w, ${require('./images/uk-large.webp')} 2000w`}
+          sizes="(max-width: 600px) 24px, (max-width: 1200px) 32px, 48px"
           alt="UK flag"
           className="flag-icon icon-margin"
-        /> 
+        />
         English
         </>
       )}
@@ -95,9 +95,9 @@ const Hero = ({ t, forwardedRef }) => {
     <header className="hero" ref={forwardedRef}>
       <div className="hero-content hero-row">
         <img
-          src={fullLogo}
-          srcSet={`${fullLogo} 1x, ${fullLogo} 2x`}
-          sizes="(max-width: 600px) 80px, 120px"
+          src={require('./images/full-logo.webp')}
+          srcSet={`${require('./images/full-logo-small.webp')} 600w, ${require('./images/full-logo-medium.webp')} 1200w, ${require('./images/full-logo-large.webp')} 2000w`}
+          sizes="(max-width: 600px) 80px, (max-width: 1200px) 120px, 200px"
           alt="Michael Ekornrud logo"
           className="hero-logo"
         />
@@ -190,8 +190,8 @@ function About({ sectionRef, t, contactT }) {
       <div className="about-content">
         <img
           src={require('./images/mek.webp')}
-          srcSet={`${require('./images/mek.webp')} 1x, ${require('./images/mek.webp')} 2x`}
-          sizes="(max-width: 600px) 80px, 120px"
+          srcSet={`${require('./images/mek-small.webp')} 600w, ${require('./images/mek-medium.webp')} 1200w, ${require('./images/mek-large.webp')} 2000w`}
+          sizes="(max-width: 600px) 80px, (max-width: 1200px) 120px, 200px"
           alt="Michael Ekornrud"
           className="about-image"
         />
@@ -224,7 +224,9 @@ function About({ sectionRef, t, contactT }) {
                   style={{ display: 'inline-flex', alignItems: 'center' }}
                 >
                   <img
-                    src={linkedinLogo}
+                    src={require('./images/linkedin-icon.webp')}
+                    srcSet={`${require('./images/linkedin-icon-small.webp')} 600w, ${require('./images/linkedin-icon-medium.webp')} 1200w, ${require('./images/linkedin-icon-large.webp')} 2000w`}
+                    sizes="(max-width: 600px) 22px, (max-width: 1200px) 32px, 48px"
                     alt="LinkedIn"
                     style={{
                       width: '22px',
@@ -247,9 +249,9 @@ function About({ sectionRef, t, contactT }) {
                   }}
                 >
                   <img
-                    src={githubLogo}
-                    srcSet={`${githubLogo} 1x, ${githubLogo} 2x`}
-                    sizes="(max-width: 600px) 22px, 32px"
+                    src={require('./images/github-emoji.webp')}
+                    srcSet={`${require('./images/github-emoji-small.webp')} 600w, ${require('./images/github-emoji-medium.webp')} 1200w, ${require('./images/github-emoji-large.webp')} 2000w`}
+                    sizes="(max-width: 600px) 22px, (max-width: 1200px) 32px, 48px"
                     alt="GitHub"
                     style={{
                       width: '22px',
