@@ -93,7 +93,10 @@ const Hero = ({ t, forwardedRef }) => {
       <div className="hero-content hero-row">
         <img
           src={require('./images/full-logo.webp')}
-          srcSet={`${require('./images/full-logo-small.webp')} 600w, ${require('./images/full-logo-medium.webp')} 1200w, ${require('./images/full-logo-large.webp')} 2000w`}
+          srcSet={`
+            ${require('./images/full-logo-small.webp')} 600w, 
+            ${require('./images/full-logo-medium.webp')} 1200w,
+            ${require('./images/full-logo-large.webp')} 2000w`}
           sizes="(max-width: 600px) 80px, (max-width: 1200px) 120px, 200px"
           alt="Michael Ekornrud logo"
           className="hero-logo"

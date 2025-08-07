@@ -156,6 +156,12 @@ header {
   font-weight: 600;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .technology-list {
   display: flex;
   flex-wrap: wrap;
