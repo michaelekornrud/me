@@ -2,13 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import './css/App.css';
 import './css/mobile-improvements.css';
-import norwayFlag from './images/norway.webp';
-import ukFlag from './images/uk.webp';
 import translations from './utils/translations';
 import experience from './utils/experience';
 import githubLogo from './images/github-emoji.webp';
 import linkedinLogo from './images/linkedin-icon.webp';
-import fullLogo from './images/full-logo.webp';
 
 export function LanguageToggle({ lang, setLang }) {
   return (
