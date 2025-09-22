@@ -8,3 +8,9 @@
 
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
+
+# Redirect all requests to index.html for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
