@@ -51,14 +51,14 @@ export function LanguageToggle({ lang, setLang }) {
         </>
       ) : (
         <>
-        <img
-          src={ukFlag}
-          srcSet={`${ukSmall} 600w, ${ukMedium} 1200w, ${ukLarge} 2000w`}
-          sizes="(max-width: 600px) 24px, (max-width: 1200px) 32px, 48px"
-          alt="UK flag"
-          className="flag-icon icon-margin"
-        />
-        English
+          <img
+            src={ukFlag}
+            srcSet={`${ukSmall} 600w, ${ukMedium} 1200w, ${ukLarge} 2000w`}
+            sizes="(max-width: 600px) 24px, (max-width: 1200px) 32px, 48px"
+            alt="UK flag"
+            className="flag-icon icon-margin"
+          />
+          English
         </>
       )}
     </button>
@@ -533,32 +533,50 @@ ScrollToTop.propTypes = {
 function SEO({ lang }) {
   const description = {
     no: 'Michael Ekornrud er en erfaren fullstack-utvikler med fokus på moderne webutvikling og cloud-løsninger.',
-    en: 'Michael Ekornrud is an experienced fullstack developer focused on modern web development and cloud solutions.'
+    en: 'Michael Ekornrud is an experienced fullstack developer focused on modern web development and cloud solutions.',
   };
 
   const keywords = {
     no: 'fullstack-utvikler, Java, Python, React, Node.js, cloud, Norge, Oslo',
-    en: 'fullstack developer, Java, Python, React, Node.js, cloud, Norway, Oslo'
+    en: 'fullstack developer, Java, Python, React, Node.js, cloud, Norway, Oslo',
   };
 
   return (
     <Helmet>
       <html lang={lang} />
-      <title>{lang === 'no' ? 'Michael Ekornrud - Fullstack-utvikler' : 'Michael Ekornrud - Fullstack Developer'}</title>
+      <title>
+        {lang === 'no'
+          ? 'Michael Ekornrud - Fullstack-utvikler'
+          : 'Michael Ekornrud - Fullstack Developer'}
+      </title>
       <meta name="description" content={description[lang]} />
       <meta name="keywords" content={keywords[lang]} />
-      
+
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://mekornrud.no/" />
-      <meta property="og:title" content={lang === 'no' ? 'Michael Ekornrud - Fullstack-utvikler' : 'Michael Ekornrud - Fullstack Developer'} />
+      <meta
+        property="og:title"
+        content={
+          lang === 'no'
+            ? 'Michael Ekornrud - Fullstack-utvikler'
+            : 'Michael Ekornrud - Fullstack Developer'
+        }
+      />
       <meta property="og:description" content={description[lang]} />
       <meta property="og:image" content="/Simple_logo.svg" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content="https://mekornrud.no/" />
-      <meta name="twitter:title" content={lang === 'no' ? 'Michael Ekornrud - Fullstack-utvikler' : 'Michael Ekornrud - Fullstack Developer'} />
+      <meta
+        name="twitter:title"
+        content={
+          lang === 'no'
+            ? 'Michael Ekornrud - Fullstack-utvikler'
+            : 'Michael Ekornrud - Fullstack Developer'
+        }
+      />
       <meta name="twitter:description" content={description[lang]} />
       <meta name="twitter:image" content="/Simple_logo.svg" />
 
