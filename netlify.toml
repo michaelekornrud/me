@@ -1,13 +1,10 @@
 [build]
-  command = "CI=false npm run build"
+  command = "npm install && CI=false npm run build"
   publish = "build"
 
 [build.environment]
-  NODE_VERSION = "20.8.1"
-  NPM_VERSION = "10.1.0"
+  NODE_VERSION = "18.17.0"
+  NPM_VERSION = "9.6.7"
 
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
-
-[context.production]
-  command = "npm ci && npm run build"
