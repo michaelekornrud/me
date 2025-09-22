@@ -1,11 +1,11 @@
 {
-  "name": "mekornrud",
-  "short_name": "mekornrud",
-  "start_url": ".",
+  "name": "Michael Ekornrud - Fullstack Developer",
+  "short_name": "M.Ekornrud",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1976d2",
-  "description": "Portfolio PWA for mekornrud.",
+  "description": "Portfolio of Michael Ekornrud, an experienced fullstack developer focused on modern web development and cloud solutions.",
   "icons": [
     {
       "src": "Simple_logo.svg",

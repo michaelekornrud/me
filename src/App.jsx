@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet-async';
 import './css/App.css';
 import './css/mobile-improvements.css';
 import translations from './utils/translations';
@@ -510,6 +511,50 @@ ScrollToTop.propTypes = {
   lang: PropTypes.oneOf(['en', 'no']).isRequired,
 };
 
+function SEO({ lang }) {
+  const description = {
+    no: 'Michael Ekornrud er en erfaren fullstack-utvikler med fokus på moderne webutvikling og cloud-løsninger.',
+    en: 'Michael Ekornrud is an experienced fullstack developer focused on modern web development and cloud solutions.'
+  };
+
+  const keywords = {
+    no: 'fullstack-utvikler, Java, Python, React, Node.js, cloud, Norge, Oslo',
+    en: 'fullstack developer, Java, Python, React, Node.js, cloud, Norway, Oslo'
+  };
+
+  return (
+    <Helmet>
+      <html lang={lang} />
+      <title>{lang === 'no' ? 'Michael Ekornrud - Fullstack-utvikler' : 'Michael Ekornrud - Fullstack Developer'}</title>
+      <meta name="description" content={description[lang]} />
+      <meta name="keywords" content={keywords[lang]} />
+      
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://mekornrud.no/" />
+      <meta property="og:title" content={lang === 'no' ? 'Michael Ekornrud - Fullstack-utvikler' : 'Michael Ekornrud - Fullstack Developer'} />
+      <meta property="og:description" content={description[lang]} />
+      <meta property="og:image" content="/Simple_logo.svg" />
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content="https://mekornrud.no/" />
+      <meta name="twitter:title" content={lang === 'no' ? 'Michael Ekornrud - Fullstack-utvikler' : 'Michael Ekornrud - Fullstack Developer'} />
+      <meta name="twitter:description" content={description[lang]} />
+      <meta name="twitter:image" content="/Simple_logo.svg" />
+
+      {/* Additional SEO tags */}
+      <meta name="author" content="Michael Ekornrud" />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" href="https://mekornrud.no/" />
+    </Helmet>
+  );
+}
+
+SEO.propTypes = {
+  lang: PropTypes.oneOf(['en', 'no']).isRequired,
+};
+
 function App() {
   const [lang, setLang] = useState('no');
   const [theme, setTheme] = useState(() => {
@@ -580,6 +625,7 @@ function App() {
 
   return (
     <div className="App" onClick={handleAnchorClick}>
+      <SEO lang={lang} />
       <div className="top-right-controls">
         <LanguageToggle lang={lang} setLang={setLang} />
         <ThemeToggle theme={theme} setTheme={setTheme} t={themeT} />
