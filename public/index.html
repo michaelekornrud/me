@@ -11,7 +11,7 @@
       gtag('config', 'G-XLPQ0LR7EQ');
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#1976d2" />
+    <meta name="theme-color" content="#0f172a" />
     <meta name="description" content="Michael Ekornrud - Experienced fullstack developer focused on modern web development and cloud solutions" />
     
     <!-- PWA support -->
@@ -32,10 +32,13 @@
       html, body {
         margin: 0;
         padding: 0;
-        background-color: var(--theme-color);
+        background-color: #0f172a; /* Default dark theme background */
         min-height: 100vh;
         display: flex;
         flex-direction: column;
+      }
+      body.light-mode {
+        background-color: #f7f7f7;
       }
       #root {
         flex: 1;
