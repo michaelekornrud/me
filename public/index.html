@@ -10,30 +10,39 @@
       gtag('js', new Date());
       gtag('config', 'G-XLPQ0LR7EQ');
     </script>
-    <link rel="icon" href="Simple_logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app" />
-    <link rel="apple-touch-icon" href="Simple_logo.svg" />
-    <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#1976d2" />
+    <meta name="description" content="Michael Ekornrud - Experienced fullstack developer focused on modern web development and cloud solutions" />
+    
+    <!-- PWA support -->
+    <link rel="icon" href="%PUBLIC_URL%/Simple_logo.svg" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/Simple_logo.svg" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Mobile webapp support -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="msapplication-navbutton-color" content="#1976d2" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <style>
       :root {
         --theme-color: #1976d2;
       }
-      /* General fallback for all browsers */
-      html {
+      /* Initial loading state - will be overridden by React */
+      html, body {
+        margin: 0;
+        padding: 0;
         background-color: var(--theme-color);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
       }
-      body {
-        background-color: var(--theme-color);
+      #root {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
       }
     </style>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -62,18 +71,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-      <script>
-        if ('serviceWorker' in navigator) {
-          window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js')
-              .then(reg => {
-                console.log('Service worker registered:', reg);
-              })
-              .catch(err => {
-                console.error('Service worker registration failed:', err);
-              });
-          });
-        }
-      </script>
   </body>
 </html>
