@@ -6,20 +6,21 @@ import '@testing-library/jest-dom';
 
 // Simple and effective IntersectionObserver mock
 global.IntersectionObserver = class IntersectionObserver {
-  constructor(callback, options) {
+  constructor(callback) {
     this.callback = callback;
-    this.options = options;
   }
 
   observe() {
-    // Trigger callback immediately to simulate intersection
-    setTimeout(() => {
-      this.callback([{ isIntersecting: true }]);
-    }, 0);
+    return null;
   }
 
-  unobserve() {}
-  disconnect() {}
+  unobserve() {
+    return null;
+  }
+
+  disconnect() {
+    return null;
+  }
 };
 
 // Also ensure window has it
