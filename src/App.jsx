@@ -690,13 +690,13 @@ ScrollToTop.propTypes = {
 
 function SEO({ lang }) {
   const description = {
-    no: 'Michael Ekornrud er en erfaren fullstack-utvikler med fokus på moderne webutvikling og cloud-løsninger.',
-    en: 'Michael Ekornrud is an experienced fullstack developer focused on modern web development and cloud solutions.',
+    no: 'Michael Ekornrud er en erfaren fullstack-utvikler fra Oslo med ekspertise innen Java, Python, React, Node.js og moderne cloud-løsninger. Kontakt meg for profesjonell webutvikling.',
+    en: 'Michael Ekornrud is an experienced fullstack developer from Oslo, Norway, specializing in Java, Python, React, Node.js and modern cloud solutions. Available for professional web development projects.',
   };
 
   const keywords = {
-    no: 'fullstack-utvikler, Java, Python, React, Node.js, cloud, Norge, Oslo',
-    en: 'fullstack developer, Java, Python, React, Node.js, cloud, Norway, Oslo',
+    no: 'fullstack-utvikler, Java, Python, React, Node.js, cloud, webutvikling, programvareutvikling, Norge, Oslo, konsulent, freelance',
+    en: 'fullstack developer, Java, Python, React, Node.js, cloud, web development, software engineering, Norway, Oslo, consultant, freelance',
   };
 
   return (
@@ -712,7 +712,7 @@ function SEO({ lang }) {
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://mekornrud.no/" />
+      <meta property="og:url" content="https://ekornrud.no/" />
       <meta
         property="og:title"
         content={
@@ -722,11 +722,11 @@ function SEO({ lang }) {
         }
       />
       <meta property="og:description" content={description[lang]} />
-      <meta property="og:image" content="/Simple_logo.svg" />
+      <meta property="og:image" content="https://ekornrud.no/Simple_logo.svg" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content="https://mekornrud.no/" />
+      <meta name="twitter:url" content="https://ekornrud.no/" />
       <meta
         name="twitter:title"
         content={
@@ -736,12 +736,42 @@ function SEO({ lang }) {
         }
       />
       <meta name="twitter:description" content={description[lang]} />
-      <meta name="twitter:image" content="/Simple_logo.svg" />
+      <meta name="twitter:image" content="https://ekornrud.no/Simple_logo.svg" />
 
       {/* Additional SEO tags */}
       <meta name="author" content="Michael Ekornrud" />
       <meta name="robots" content="index, follow" />
-      <link rel="canonical" href="https://mekornrud.no/" />
+      <link rel="canonical" href="https://ekornrud.no/" />
+      
+      {/* International SEO */}
+      <link rel="alternate" hrefLang="no" href="https://ekornrud.no/" />
+      <link rel="alternate" hrefLang="en" href="https://ekornrud.no/?lang=en" />
+      <link rel="alternate" hrefLang="x-default" href="https://ekornrud.no/" />
+      
+      {/* Structured Data */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Michael Ekornrud",
+          "url": "https://ekornrud.no",
+          "sameAs": [
+            "https://www.linkedin.com/in/ole-michael-ekornrud",
+            "https://github.com/mekornrud"
+          ],
+          "jobTitle": lang === 'no' ? "Fullstack-utvikler" : "Fullstack Developer",
+          "description": description[lang],
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "NO",
+            "addressLocality": "Oslo"
+          },
+          "knowsAbout": [
+            "Java", "Python", "React", "Node.js", "Cloud Computing",
+            "Fullstack Development", "Web Development", "Software Engineering"
+          ]
+        })}
+      </script>
     </Helmet>
   );
 }
