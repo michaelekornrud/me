@@ -736,40 +736,50 @@ function SEO({ lang }) {
         }
       />
       <meta name="twitter:description" content={description[lang]} />
-      <meta name="twitter:image" content="https://ekornrud.no/Simple_logo.svg" />
+      <meta
+        name="twitter:image"
+        content="https://ekornrud.no/Simple_logo.svg"
+      />
 
       {/* Additional SEO tags */}
       <meta name="author" content="Michael Ekornrud" />
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://ekornrud.no/" />
-      
+
       {/* International SEO */}
       <link rel="alternate" hrefLang="no" href="https://ekornrud.no/" />
       <link rel="alternate" hrefLang="en" href="https://ekornrud.no/?lang=en" />
       <link rel="alternate" hrefLang="x-default" href="https://ekornrud.no/" />
-      
+
       {/* Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Michael Ekornrud",
-          "url": "https://ekornrud.no",
-          "sameAs": [
-            "https://www.linkedin.com/in/ole-michael-ekornrud",
-            "https://github.com/mekornrud"
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          name: 'Michael Ekornrud',
+          url: 'https://ekornrud.no',
+          sameAs: [
+            'https://www.linkedin.com/in/ole-michael-ekornrud',
+            'https://github.com/mekornrud',
           ],
-          "jobTitle": lang === 'no' ? "Fullstack-utvikler" : "Fullstack Developer",
-          "description": description[lang],
-          "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "NO",
-            "addressLocality": "Oslo"
+          jobTitle:
+            lang === 'no' ? 'Fullstack-utvikler' : 'Fullstack Developer',
+          description: description[lang],
+          address: {
+            '@type': 'PostalAddress',
+            addressCountry: 'NO',
+            addressLocality: 'Oslo',
           },
-          "knowsAbout": [
-            "Java", "Python", "React", "Node.js", "Cloud Computing",
-            "Fullstack Development", "Web Development", "Software Engineering"
-          ]
+          knowsAbout: [
+            'Java',
+            'Python',
+            'React',
+            'Node.js',
+            'Cloud Computing',
+            'Fullstack Development',
+            'Web Development',
+            'Software Engineering',
+          ],
         })}
       </script>
     </Helmet>
