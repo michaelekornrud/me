@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async'; // eslint-disable-line no-unused-vars
 import './css/App.css';
 import './css/mobile-improvements.css';
 import translations from './utils/translations';
@@ -137,7 +137,9 @@ const Hero = ({ t, forwardedRef }) => {
               <a href="#experience">{t.nav.experience}</a>
             </li>
             <li>
-              <a href="#certifications">{t.lang === 'no' ? 'Sertifiseringer' : 'Certifications'}</a>
+              <a href="#certifications">
+                {t.lang === 'no' ? 'Sertifiseringer' : 'Certifications'}
+              </a>
             </li>
           </ul>
         </nav>
@@ -463,7 +465,7 @@ function Certifications({ sectionRef, t }) {
   const getStatusText = (status, lang) => {
     const statusTexts = {
       en: { active: 'Active', expired: 'Expired', pending: 'Pending' },
-      no: { active: 'Aktiv', expired: 'Utløpt', pending: 'Venter' }
+      no: { active: 'Aktiv', expired: 'Utløpt', pending: 'Venter' },
     };
     return statusTexts[lang] ? statusTexts[lang][status] || status : status;
   };
@@ -484,22 +486,34 @@ function Certifications({ sectionRef, t }) {
               {category.certifications.map((cert, certIndex) => (
                 <div key={certIndex} className="certification-card">
                   <div className="certification-header">
-                    <div className="certification-logo"><img src={cert.logo} alt={cert.name} style={{height:'2.5em', width:'2.5em'}} /></div>
+                    <div className="certification-logo">
+                      <img
+                        src={cert.logo}
+                        alt={cert.name}
+                        style={{ height: '2.5em', width: '2.5em' }}
+                      />
+                    </div>
                     <div className="certification-info">
                       <h4 className="certification-name">{cert.name}</h4>
                       <div className="certification-code">{cert.code}</div>
                     </div>
                   </div>
-                  
+
                   <div className="certification-meta">
                     <div className="certification-date">
                       <span>📅</span>
-                      <span>{t.lang === 'no' ? 'Utstedt:' : 'Issued:'} {formatDate(cert.date)}</span>
+                      <span>
+                        {t.lang === 'no' ? 'Utstedt:' : 'Issued:'}{' '}
+                        {formatDate(cert.date)}
+                      </span>
                     </div>
                     {cert.validUntil && (
                       <div className="certification-validity">
                         <span>⏰</span>
-                        <span>{t.lang === 'no' ? 'Gyldig til:' : 'Valid until:'} {formatDate(cert.validUntil)}</span>
+                        <span>
+                          {t.lang === 'no' ? 'Gyldig til:' : 'Valid until:'}{' '}
+                          {formatDate(cert.validUntil)}
+                        </span>
                       </div>
                     )}
                     <div className={`certification-status ${cert.status}`}>
@@ -507,7 +521,9 @@ function Certifications({ sectionRef, t }) {
                     </div>
                   </div>
 
-                  <p className="certification-description">{cert.description}</p>
+                  <p className="certification-description">
+                    {cert.description}
+                  </p>
 
                   <div className="certification-skills">
                     {cert.skills.map((skill, skillIndex) => (
@@ -530,7 +546,12 @@ function Certifications({ sectionRef, t }) {
                   </div>
 
                   {cert.credentialId && (
-                    <div className="credential-id" title={t.lang === 'no' ? 'Sertifiserings ID' : 'Credential ID'}>
+                    <div
+                      className="credential-id"
+                      title={
+                        t.lang === 'no' ? 'Sertifiserings ID' : 'Credential ID'
+                      }
+                    >
                       {t.lang === 'no' ? 'ID:' : 'ID:'} {cert.credentialId}
                     </div>
                   )}
@@ -568,7 +589,8 @@ Certifications.propTypes = {
             description: PropTypes.string.isRequired,
             skills: PropTypes.arrayOf(PropTypes.string).isRequired,
             logo: PropTypes.string.isRequired,
-            status: PropTypes.oneOf(['active', 'expired', 'pending']).isRequired,
+            status: PropTypes.oneOf(['active', 'expired', 'pending'])
+              .isRequired,
           }),
         ).isRequired,
       }),
@@ -743,7 +765,12 @@ function App() {
   const expertiseT = translations.expertise[lang];
   const aboutT = translations.about[lang];
   const experienceT = experience[lang];
-  const certificationsT = certifications[lang] || { lang, title: 'Loading...', description: 'Loading...', categories: [] };
+  const certificationsT = certifications[lang] || {
+    lang,
+    title: 'Loading...',
+    description: 'Loading...',
+    categories: [],
+  };
   const contactT = translations.contact[lang];
   const themeT = translations.theme[lang];
 
@@ -821,7 +848,9 @@ function App() {
               <a href="#experience">{heroT.nav.experience}</a>
             </li>
             <li>
-              <a href="#certifications">{lang === 'no' ? 'Sertifiseringer' : 'Certifications'}</a>
+              <a href="#certifications">
+                {lang === 'no' ? 'Sertifiseringer' : 'Certifications'}
+              </a>
             </li>
           </ul>
         </nav>

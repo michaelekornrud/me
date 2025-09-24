@@ -1154,7 +1154,7 @@ body.dark-mode .project-technologies .technology-tag {
   gap: 1rem;
   flex-wrap: wrap;
   margin-bottom: 1rem;
-  }
+}
 
 .certification-verify-btn {
   display: inline-flex;
@@ -1231,23 +1231,23 @@ body.dark-mode .credential-id {
   .certifications-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .certification-card {
     padding: 1rem;
   }
-  
+
   .certification-header {
     gap: 0.75rem;
   }
-  
+
   .certification-logo {
     font-size: 1.5rem;
   }
-  
+
   .certification-actions {
     flex-direction: column;
   }
-  
+
   .certification-verify-btn {
     justify-content: center;
   }
