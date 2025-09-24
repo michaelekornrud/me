@@ -1,0 +1,39 @@
+# Cache control headers to fix cache-control warnings
+# Override server-level cache-control headers that include must-revalidate
+
+# HTML files - no caching for dynamic content
+/*.html  Cache-Control: public, max-age=0
+
+# Root path
+/  Cache-Control: public, max-age=0
+
+# Static assets - longer cache with proper revalidation
+/static/css/*  Cache-Control: public, max-age=31536000, immutable
+
+/static/js/*  Cache-Control: public, max-age=31536000, immutable
+
+/static/media/*  Cache-Control: public, max-age=31536000, immutable
+
+# Manifest and service worker files
+/manifest.json  Cache-Control: public, max-age=0
+
+/service-worker.js  Cache-Control: public, max-age=0
+
+# Root-level images and logos (these don't have hashes)
+/*.svg  Cache-Control: public, max-age=86400
+
+/*.webp  Cache-Control: public, max-age=86400
+
+/*.png  Cache-Control: public, max-age=86400
+
+/*.jpg  Cache-Control: public, max-age=86400
+
+/*.jpeg  Cache-Control: public, max-age=86400
+
+# Security headers for all resources
+/*:
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()

@@ -59,14 +59,38 @@ self.addEventListener('fetch', event => {
           return response;
         })
         .catch(() => {
-          return caches.match(event.request);
+          return caches.match(event.request).then(cachedResponse => {
+            if (cachedResponse) {
+              // Clone the response and modify headers to fix cache-control warning
+              const modifiedResponse = new Response(cachedResponse.body, {
+                status: cachedResponse.status,
+                statusText: cachedResponse.statusText,
+                headers: new Headers({
+                  ...Object.fromEntries(cachedResponse.headers.entries()),
+                  'Cache-Control': 'public, max-age=0'
+                })
+              });
+              return modifiedResponse;
+            }
+            return cachedResponse;
+          });
         })
     );
   } else {
     // Cache-first for static assets
     event.respondWith(
       caches.match(event.request).then(response => {
-        return response || fetch(event.request);
+        if (response) {
+          return response;
+        }
+        return fetch(event.request).then(fetchResponse => {
+          // Cache the response for future use
+          const responseClone = fetchResponse.clone();
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, responseClone);
+          });
+          return fetchResponse;
+        });
       })
     );
   }
