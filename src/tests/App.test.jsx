@@ -1,8 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent, within } from '@testing-library/react';
-import { HelmetProvider } from 'react-helmet-async';
-// eslint-disable-next-line no-unused-vars
-import App from '../App';
+import { HelmetProvider } from 'react-helmet-async'; // eslint-disable-line no-unused-vars
+import App from '../App'; // eslint-disable-line no-unused-vars
 
 // Mock translations
 jest.mock('../utils/translations', () => ({
@@ -187,7 +186,7 @@ const renderApp = () => {
   return render(
     <HelmetProvider>
       <App />
-    </HelmetProvider>
+    </HelmetProvider>,
   );
 };
 

@@ -2,7 +2,7 @@ const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
-const inputDir = path.join(__dirname, 'src/images');
+const inputDir = path.join(__dirname, 'src/images/cert');
 const outputDir = inputDir; // Save resized images in the same folder
 
 const sizes = [
@@ -12,7 +12,7 @@ const sizes = [
 ];
 
 fs.readdirSync(inputDir).forEach(file => {
-  if (/\.(webp|jpg|jpeg|png)$/i.test(file)) {
+  if (/\.(webp|jpg|jpeg|png|svg)$/i.test(file)) {
     sizes.forEach(size => {
       sharp(path.join(inputDir, file))
         .resize(size.width)
