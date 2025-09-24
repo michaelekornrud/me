@@ -2,13 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    
+    <!-- Permissions Policy to suppress Brave browser warnings -->
+    <meta http-equiv="Permissions-Policy" content="attribution-reporting=(), private-aggregation=(), private-state-token-issuance=(), private-state-token-redemption=(), join-ad-interest-group=(), run-ad-auction=(), browsing-topics=()">
+    
     <!-- Google Analytics 4 tracking code -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XLPQ0LR7EQ"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XLPQ0LR7EQ');
+      // Only load Google Analytics if not in a privacy-focused browser
+      if (!navigator.brave && !navigator.userAgent.includes('DuckDuckGo')) {
+        (function() {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XLPQ0LR7EQ';
+          document.head.appendChild(script);
+          
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XLPQ0LR7EQ');
+        })();
+      }
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0f172a" />
