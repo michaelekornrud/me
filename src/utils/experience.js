@@ -31,7 +31,7 @@ const experience = {
           },
           {
             client: 'Å Insite',
-            period: 'Aug 2024 - April 2025',
+            period: 'Aug 2024 - Apr 2025',
             role: 'Data Engineer & Customer Support',
             description:
               'Development and maintenance of digital services for Å Insite. Focus on Python, PostgreSQL, and DevOps practices.',
@@ -125,7 +125,7 @@ const experience = {
           },
           {
             client: 'Michael Ekornrud',
-            period: 'Aug 2025',
+            period: 'Sep 2025',
             role: 'Web Developer',
             description:
               'Development of a personal website to showcase projects and experience. Focus on modern web technologies and responsive design.',
@@ -283,7 +283,7 @@ const experience = {
           },
           {
             client: 'Michael Ekornrud',
-            period: 'Aug 2025',
+            period: 'Sep 2025',
             role: 'Webutvikler',
             description:
               'Utvikling av en personlig nettside for å vise frem prosjekter og erfaring. Fokus på moderne webteknologier og responsivt design.',

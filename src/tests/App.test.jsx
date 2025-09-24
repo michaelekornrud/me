@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent, within } from '@testing-library/react';
+import { HelmetProvider } from 'react-helmet-async';
 // eslint-disable-next-line no-unused-vars
 import App from '../App';
 
@@ -181,10 +182,19 @@ jest.mock('../utils/experience', () => ({
   },
 }));
 
+// Helper function to render App with required providers
+const renderApp = () => {
+  return render(
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
+  );
+};
+
 // App Component Tests
 describe('App Component', () => {
   test('renders main content in Norwegian by default', () => {
-    render(<App />);
+    renderApp();
     expect(
       screen.getByText('Konsulent, utvikler og problemløser'),
     ).toBeInTheDocument();
@@ -197,14 +207,14 @@ describe('App Component', () => {
   });
 
   test('renders copyright text', () => {
-    render(<App />);
+    renderApp();
     expect(
       screen.getByText(/© 2024 Michael Ekornrud - All rights reserved./),
     ).toBeInTheDocument();
   });
 
   test('renders social links', () => {
-    render(<App />);
+    renderApp();
     const linkedinLinks = screen.getAllByText('LinkedIn');
     const githubLinks = screen.getAllByText('GitHub');
     expect(linkedinLinks[0]).toHaveAttribute(
@@ -221,7 +231,7 @@ describe('App Component', () => {
 // Language Toggle Tests
 describe('Language Toggle', () => {
   test('switches language from Norwegian to English', async () => {
-    render(<App />);
+    renderApp();
     const languageButton = screen.getByRole('button', {
       name: /Toggle language/i,
     });
@@ -237,7 +247,7 @@ describe('Language Toggle', () => {
   });
 
   test('displays correct flag based on language', () => {
-    render(<App />);
+    renderApp();
     expect(screen.getByAltText('Norwegian flag')).toBeInTheDocument();
 
     const languageButton = screen.getByRole('button', {
@@ -259,7 +269,7 @@ describe('Theme Toggle', () => {
   });
 
   test('switches theme from dark to light', () => {
-    render(<App />);
+    renderApp();
     const themeButton = screen.getByRole('button', {
       name: /Bytt mellom mørk og lys modus/i,
     });
@@ -276,7 +286,7 @@ describe('Theme Toggle', () => {
 
   test('persists theme selection', () => {
     localStorage.setItem('theme', 'light');
-    render(<App />);
+    renderApp();
     expect(document.documentElement.getAttribute('data-theme')).toBe('light');
   });
 });
@@ -284,7 +294,7 @@ describe('Theme Toggle', () => {
 // Experience Section Tests
 describe('Experience Section', () => {
   test('renders experience items', () => {
-    render(<App />);
+    renderApp();
     // Look for the experience section by its heading instead of region role
     expect(
       screen.getByRole('heading', { name: /erfaring og utdanning/i }),
@@ -292,7 +302,7 @@ describe('Experience Section', () => {
   });
 
   test('expands experience details on click', async () => {
-    render(<App />);
+    renderApp();
     const experienceItems = screen.getAllByTestId('experience-item');
 
     // Click first experience item
@@ -306,7 +316,7 @@ describe('Experience Section', () => {
 // Expertise Section Tests
 describe('Expertise Section', () => {
   test('renders expertise section with categories', () => {
-    render(<App />);
+    renderApp();
     // Look for the expertise section by its heading instead of region role
     expect(
       screen.getByRole('heading', { name: /teknisk ekspertise/i }),
@@ -322,7 +332,7 @@ describe('Expertise Section', () => {
 // About Section Tests
 describe('About Section', () => {
   test('renders about section with contact information', () => {
-    render(<App />);
+    renderApp();
     // Look for the about section by its heading instead of region role
     expect(
       screen.getByRole('heading', { name: /om meg & kontakt/i }),
@@ -350,7 +360,7 @@ describe('About Section', () => {
 // Sticky Navigation Tests
 describe('Sticky Navigation', () => {
   test('shows sticky nav when hero is not visible', () => {
-    render(<App />);
+    renderApp();
 
     // Check that navigation elements exist - simplified test without mock complexity
     const navigationElements = screen.queryAllByRole('navigation');
@@ -382,7 +392,7 @@ describe('ScrollToTop', () => {
       value: 600,
     });
 
-    render(<App />);
+    renderApp();
 
     // Simulate scroll event
     fireEvent.scroll(window);
@@ -399,7 +409,7 @@ describe('ScrollToTop', () => {
       value: 600,
     });
 
-    render(<App />);
+    renderApp();
 
     // Simulate scroll to make button visible
     fireEvent.scroll(window);
