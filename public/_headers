@@ -29,3 +29,11 @@
 /*.jpg  Cache-Control: public, max-age=86400
 
 /*.jpeg  Cache-Control: public, max-age=86400
+
+# Security headers for all resources
+/*:
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()

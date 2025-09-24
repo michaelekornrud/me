@@ -6,20 +6,47 @@
     <!-- Permissions Policy to suppress Brave browser warnings -->
     <meta http-equiv="Permissions-Policy" content="attribution-reporting=(), private-aggregation=(), private-state-token-issuance=(), private-state-token-redemption=(), join-ad-interest-group=(), run-ad-auction=(), browsing-topics=()">
     
-    <!-- Google Analytics 4 tracking code -->
+    <!-- Performance optimization for Google Analytics -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    
+    <!-- Google Analytics 4 tracking code with improved caching -->
     <script>
       // Only load Google Analytics if not in a privacy-focused browser
       if (!navigator.brave && !navigator.userAgent.includes('DuckDuckGo')) {
         (function() {
-          var script = document.createElement('script');
-          script.async = true;
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XLPQ0LR7EQ';
-          document.head.appendChild(script);
-          
+          // Initialize dataLayer first
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-XLPQ0LR7EQ');
+          gtag('config', 'G-XLPQ0LR7EQ', {
+            // Optimize loading and caching
+            transport_type: 'beacon',
+            custom_map: {'custom_parameter': 'value'}
+          });
+          
+          // Load GA script with improved error handling and caching hints
+          var script = document.createElement('script');
+          script.async = true;
+          script.defer = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XLPQ0LR7EQ';
+          script.crossOrigin = 'anonymous';
+          
+          // Add cache-friendly loading strategy
+          script.onload = function() {
+            // Script loaded successfully
+            gtag('event', 'script_loaded', {
+              'event_category': 'performance',
+              'event_label': 'gtag_script'
+            });
+          };
+          
+          script.onerror = function() {
+            // Fallback if GA script fails to load
+            console.warn('Google Analytics script failed to load');
+          };
+          
+          document.head.appendChild(script);
         })();
       }
     </script>
