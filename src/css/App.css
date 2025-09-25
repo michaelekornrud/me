@@ -1178,7 +1178,7 @@ body.dark-mode .project-technologies .technology-tag {
 }
 
 .credential-id {
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-size: 0.8rem;
   color: #64748b;
   background: #f8fafc;

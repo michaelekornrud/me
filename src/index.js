@@ -1,12 +1,12 @@
-import React from 'react'; // eslint-disable-line no-unused-vars
-import ReactDOM from 'react-dom/client';
-import { HelmetProvider } from 'react-helmet-async'; // eslint-disable-line no-unused-vars
-import './css/App.css';
-import App from './App'; // eslint-disable-line no-unused-vars
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import reportWebVitals from './utils/reportWebVitals';
+import React from "react"; // eslint-disable-line no-unused-vars
+import ReactDOM from "react-dom/client";
+import { HelmetProvider } from "react-helmet-async"; // eslint-disable-line no-unused-vars
+import "./css/App.css";
+import App from "./App"; // eslint-disable-line no-unused-vars
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import reportWebVitals from "./utils/reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <HelmetProvider>

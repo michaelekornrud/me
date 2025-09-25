@@ -1,45 +1,45 @@
-import { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet-async'; // eslint-disable-line no-unused-vars
-import './css/App.css';
-import './css/mobile-improvements.css';
-import translations from './utils/translations';
-import experience from './utils/experience';
-import certifications from './utils/certifications';
-import githubLogo from './images/github-emoji.webp';
-import githubSmall from './images/github-emoji-small.webp';
-import githubMedium from './images/github-emoji-medium.webp';
-import githubLarge from './images/github-emoji-large.webp';
-import linkedinLogo from './images/linkedin-icon.webp';
-import linkedinSmall from './images/linkedin-icon-small.webp';
-import linkedinMedium from './images/linkedin-icon-medium.webp';
-import linkedinLarge from './images/linkedin-icon-large.webp';
-import norwaySmall from './images/norway-small.webp';
-import norwayMedium from './images/norway-medium.webp';
-import norwayLarge from './images/norway-large.webp';
-import norwayFlag from './images/norway.webp';
-import ukSmall from './images/uk-small.webp';
-import ukMedium from './images/uk-medium.webp';
-import ukLarge from './images/uk-large.webp';
-import ukFlag from './images/uk.webp';
-import fullLogo from './images/full-logo.webp';
-import fullLogoSmall from './images/full-logo-small.webp';
-import fullLogoMedium from './images/full-logo-medium.webp';
-import fullLogoLarge from './images/full-logo-large.webp';
-import mekImage from './images/mek.webp';
-import mekSmall from './images/mek-small.webp';
-import mekMedium from './images/mek-medium.webp';
-import mekLarge from './images/mek-large.webp';
+import { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
+import { Helmet } from "react-helmet-async"; // eslint-disable-line no-unused-vars
+import "./css/App.css";
+import "./css/mobile-improvements.css";
+import translations from "./utils/translations";
+import experience from "./utils/experience";
+import certifications from "./utils/certifications";
+import githubLogo from "./images/github-emoji.webp";
+import githubSmall from "./images/github-emoji-small.webp";
+import githubMedium from "./images/github-emoji-medium.webp";
+import githubLarge from "./images/github-emoji-large.webp";
+import linkedinLogo from "./images/linkedin-icon.webp";
+import linkedinSmall from "./images/linkedin-icon-small.webp";
+import linkedinMedium from "./images/linkedin-icon-medium.webp";
+import linkedinLarge from "./images/linkedin-icon-large.webp";
+import norwaySmall from "./images/norway-small.webp";
+import norwayMedium from "./images/norway-medium.webp";
+import norwayLarge from "./images/norway-large.webp";
+import norwayFlag from "./images/norway.webp";
+import ukSmall from "./images/uk-small.webp";
+import ukMedium from "./images/uk-medium.webp";
+import ukLarge from "./images/uk-large.webp";
+import ukFlag from "./images/uk.webp";
+import fullLogo from "./images/full-logo.webp";
+import fullLogoSmall from "./images/full-logo-small.webp";
+import fullLogoMedium from "./images/full-logo-medium.webp";
+import fullLogoLarge from "./images/full-logo-large.webp";
+import mekImage from "./images/mek.webp";
+import mekSmall from "./images/mek-small.webp";
+import mekMedium from "./images/mek-medium.webp";
+import mekLarge from "./images/mek-large.webp";
 
 export function LanguageToggle({ lang, setLang }) {
   return (
     <button
       className="language-toggle-btn"
-      onClick={() => setLang(lang === 'en' ? 'no' : 'en')}
+      onClick={() => setLang(lang === "en" ? "no" : "en")}
       aria-label="Toggle language"
       type="button"
     >
-      {lang === 'no' ? (
+      {lang === "no" ? (
         <>
           <img
             src={norwayFlag}
@@ -67,7 +67,7 @@ export function LanguageToggle({ lang, setLang }) {
 }
 
 LanguageToggle.propTypes = {
-  lang: PropTypes.oneOf(['en', 'no']).isRequired,
+  lang: PropTypes.oneOf(["en", "no"]).isRequired,
   setLang: PropTypes.func.isRequired,
 };
 
@@ -75,11 +75,11 @@ export function ThemeToggle({ theme, setTheme, t }) {
   return (
     <button
       className="theme-toggle-btn"
-      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       aria-label={t.toggleLabel}
       type="button"
     >
-      {theme === 'dark' ? (
+      {theme === "dark" ? (
         <>
           <span role="img" aria-label={t.moonLabel} className="icon-margin">
             🌙
@@ -99,7 +99,7 @@ export function ThemeToggle({ theme, setTheme, t }) {
 }
 
 ThemeToggle.propTypes = {
-  theme: PropTypes.oneOf(['light', 'dark']).isRequired,
+  theme: PropTypes.oneOf(["light", "dark"]).isRequired,
   setTheme: PropTypes.func.isRequired,
   t: PropTypes.shape({
     toggleLabel: PropTypes.string.isRequired,
@@ -138,7 +138,7 @@ const Hero = ({ t, forwardedRef }) => {
             </li>
             <li>
               <a href="#certifications">
-                {t.lang === 'no' ? 'Sertifiseringer' : 'Certifications'}
+                {t.lang === "no" ? "Sertifiseringer" : "Certifications"}
               </a>
             </li>
           </ul>
@@ -208,7 +208,7 @@ Expertise.propTypes = {
 };
 
 function About({ sectionRef, t, contactT }) {
-  const paragraphs = t.desc.split('\n\n');
+  const paragraphs = t.desc.split("\n\n");
 
   return (
     <section id="about" ref={sectionRef} aria-labelledby="about-heading">
@@ -238,7 +238,7 @@ function About({ sectionRef, t, contactT }) {
               </div>
               <div className="contact-item">
                 <span className="contact-label">{contactT.phone}:</span>
-                <a href={`tel: ${contactT.phoneValue.replace(/\s/g, '')}`}>
+                <a href={`tel: ${contactT.phoneValue.replace(/\s/g, "")}`}>
                   {contactT.phoneValue}
                 </a>
               </div>
@@ -247,7 +247,7 @@ function About({ sectionRef, t, contactT }) {
                   href="https://www.linkedin.com/in/michael-ekornrud"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ display: 'inline-flex', alignItems: 'center' }}
+                  style={{ display: "inline-flex", alignItems: "center" }}
                 >
                   <img
                     src={linkedinLogo}
@@ -255,11 +255,11 @@ function About({ sectionRef, t, contactT }) {
                     sizes="(max-width: 600px) 22px, (max-width: 1200px) 32px, 48px"
                     alt="LinkedIn"
                     style={{
-                      width: '22px',
-                      height: '22px',
-                      borderRadius: '50%',
-                      marginRight: '4px',
-                      background: '#fff',
+                      width: "22px",
+                      height: "22px",
+                      borderRadius: "50%",
+                      marginRight: "4px",
+                      background: "#fff",
                     }}
                   />
                   LinkedIn
@@ -269,9 +269,9 @@ function About({ sectionRef, t, contactT }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
-                    marginLeft: '12px',
-                    display: 'inline-flex',
-                    alignItems: 'center',
+                    marginLeft: "12px",
+                    display: "inline-flex",
+                    alignItems: "center",
                   }}
                 >
                   <img
@@ -280,11 +280,11 @@ function About({ sectionRef, t, contactT }) {
                     sizes="(max-width: 600px) 22px, (max-width: 1200px) 32px, 48px"
                     alt="GitHub"
                     style={{
-                      width: '22px',
-                      height: '22px',
-                      borderRadius: '50%',
-                      marginRight: '4px',
-                      background: '#fff',
+                      width: "22px",
+                      height: "22px",
+                      borderRadius: "50%",
+                      marginRight: "4px",
+                      background: "#fff",
                     }}
                   />
                   GitHub
@@ -334,11 +334,11 @@ function Experience({ sectionRef, t }) {
         <h3 className="experience-section-title">{t.experienceTitle}</h3>
         {t.experienceItems.map((item) => (
           <div
-            className={`experience-item ${expandedJob === item.title ? 'expanded' : ''}`}
+            className={`experience-item ${expandedJob === item.title ? "expanded" : ""}`}
             key={item.title + item.date}
             onClick={() => toggleJob(item.title)}
             data-tooltip={
-              t.lang === 'no' ? 'Klikk for å utvide' : 'Click to expand'
+              t.lang === "no" ? "Klikk for å utvide" : "Click to expand"
             }
             data-testid="experience-item"
           >
@@ -355,7 +355,7 @@ function Experience({ sectionRef, t }) {
                   {item.projects && (
                     <div className="projects-list">
                       <h5 className="projects-title">
-                        {t.lang === 'no' ? 'Prosjekter' : 'Projects'}
+                        {t.lang === "no" ? "Prosjekter" : "Projects"}
                       </h5>
                       {item.projects.map((project, index) => (
                         <div key={index} className="project-item">
@@ -442,7 +442,7 @@ Experience.propTypes = {
         company: PropTypes.string.isRequired,
       }),
     ).isRequired,
-    lang: PropTypes.oneOf(['en', 'no']).isRequired,
+    lang: PropTypes.oneOf(["en", "no"]).isRequired,
   }).isRequired,
 };
 
@@ -458,14 +458,14 @@ function Certifications({ sectionRef, t }) {
   }
 
   const formatDate = (dateStr) => {
-    if (!dateStr) return '';
+    if (!dateStr) return "";
     return dateStr;
   };
 
   const getStatusText = (status, lang) => {
     const statusTexts = {
-      en: { active: 'Active', expired: 'Expired', pending: 'Pending' },
-      no: { active: 'Aktiv', expired: 'Utløpt', pending: 'Venter' },
+      en: { active: "Active", expired: "Expired", pending: "Pending" },
+      no: { active: "Aktiv", expired: "Utløpt", pending: "Venter" },
     };
     return statusTexts[lang] ? statusTexts[lang][status] || status : status;
   };
@@ -490,7 +490,7 @@ function Certifications({ sectionRef, t }) {
                       <img
                         src={cert.logo}
                         alt={cert.name}
-                        style={{ height: '2.5em', width: '2.5em' }}
+                        style={{ height: "2.5em", width: "2.5em" }}
                       />
                     </div>
                     <div className="certification-info">
@@ -503,7 +503,7 @@ function Certifications({ sectionRef, t }) {
                     <div className="certification-date">
                       <span>📅</span>
                       <span>
-                        {t.lang === 'no' ? 'Utstedt:' : 'Issued:'}{' '}
+                        {t.lang === "no" ? "Utstedt:" : "Issued:"}{" "}
                         {formatDate(cert.date)}
                       </span>
                     </div>
@@ -511,7 +511,7 @@ function Certifications({ sectionRef, t }) {
                       <div className="certification-validity">
                         <span>⏰</span>
                         <span>
-                          {t.lang === 'no' ? 'Gyldig til:' : 'Valid until:'}{' '}
+                          {t.lang === "no" ? "Gyldig til:" : "Valid until:"}{" "}
                           {formatDate(cert.validUntil)}
                         </span>
                       </div>
@@ -541,7 +541,7 @@ function Certifications({ sectionRef, t }) {
                       className="certification-verify-btn"
                     >
                       <span>🔍</span>
-                      {t.lang === 'no' ? 'Verifiser' : 'Verify'}
+                      {t.lang === "no" ? "Verifiser" : "Verify"}
                     </a>
                   </div>
 
@@ -549,10 +549,10 @@ function Certifications({ sectionRef, t }) {
                     <div
                       className="credential-id"
                       title={
-                        t.lang === 'no' ? 'Sertifiserings ID' : 'Credential ID'
+                        t.lang === "no" ? "Sertifiserings ID" : "Credential ID"
                       }
                     >
-                      {t.lang === 'no' ? 'ID:' : 'ID:'} {cert.credentialId}
+                      {t.lang === "no" ? "ID:" : "ID:"} {cert.credentialId}
                     </div>
                   )}
                 </div>
@@ -573,7 +573,7 @@ Certifications.propTypes = {
   t: PropTypes.shape({
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    lang: PropTypes.oneOf(['en', 'no']).isRequired,
+    lang: PropTypes.oneOf(["en", "no"]).isRequired,
     categories: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,
@@ -589,7 +589,7 @@ Certifications.propTypes = {
             description: PropTypes.string.isRequired,
             skills: PropTypes.arrayOf(PropTypes.string).isRequired,
             logo: PropTypes.string.isRequired,
-            status: PropTypes.oneOf(['active', 'expired', 'pending'])
+            status: PropTypes.oneOf(["active", "expired", "pending"])
               .isRequired,
           }),
         ).isRequired,
@@ -607,17 +607,17 @@ function Footer() {
           href="https://www.linkedin.com/in/michael-ekornrud"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ display: 'inline-flex', alignItems: 'center' }}
+          style={{ display: "inline-flex", alignItems: "center" }}
         >
           <img
             src={linkedinLogo}
             alt="LinkedIn"
             style={{
-              width: '22px',
-              height: '22px',
-              borderRadius: '50%',
-              marginRight: '4px',
-              background: '#fff',
+              width: "22px",
+              height: "22px",
+              borderRadius: "50%",
+              marginRight: "4px",
+              background: "#fff",
             }}
           />
           LinkedIn
@@ -627,20 +627,20 @@ function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            marginLeft: '12px',
-            display: 'inline-flex',
-            alignItems: 'center',
+            marginLeft: "12px",
+            display: "inline-flex",
+            alignItems: "center",
           }}
         >
           <img
             src={githubLogo}
             alt="GitHub"
             style={{
-              width: '22px',
-              height: '22px',
-              borderRadius: '50%',
-              marginRight: '4px',
-              background: '#fff',
+              width: "22px",
+              height: "22px",
+              borderRadius: "50%",
+              marginRight: "4px",
+              background: "#fff",
             }}
           />
           GitHub
@@ -662,14 +662,14 @@ function ScrollToTop({ lang }) {
       setIsVisible(window.scrollY > 500);
     };
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -677,7 +677,7 @@ function ScrollToTop({ lang }) {
     <button
       className="scroll-to-top"
       onClick={scrollToTop}
-      aria-label={lang === 'no' ? 'Gå til toppen' : 'Back to top'}
+      aria-label={lang === "no" ? "Gå til toppen" : "Back to top"}
     >
       ↑
     </button>
@@ -685,27 +685,27 @@ function ScrollToTop({ lang }) {
 }
 
 ScrollToTop.propTypes = {
-  lang: PropTypes.oneOf(['en', 'no']).isRequired,
+  lang: PropTypes.oneOf(["en", "no"]).isRequired,
 };
 
 function SEO({ lang }) {
   const description = {
-    no: 'Michael Ekornrud er en erfaren fullstack-utvikler fra Oslo med ekspertise innen Java, Python, React, Node.js og moderne cloud-løsninger. Kontakt meg for profesjonell webutvikling.',
-    en: 'Michael Ekornrud is an experienced fullstack developer from Oslo, Norway, specializing in Java, Python, React, Node.js and modern cloud solutions. Available for professional web development projects.',
+    no: "Michael Ekornrud er en erfaren fullstack-utvikler fra Oslo med ekspertise innen Java, Python, React, Node.js og moderne cloud-løsninger. Kontakt meg for profesjonell webutvikling.",
+    en: "Michael Ekornrud is an experienced fullstack developer from Oslo, Norway, specializing in Java, Python, React, Node.js and modern cloud solutions. Available for professional web development projects.",
   };
 
   const keywords = {
-    no: 'fullstack-utvikler, Java, Python, React, Node.js, cloud, webutvikling, programvareutvikling, Norge, Oslo, konsulent, freelance',
-    en: 'fullstack developer, Java, Python, React, Node.js, cloud, web development, software engineering, Norway, Oslo, consultant, freelance',
+    no: "fullstack-utvikler, Java, Python, React, Node.js, cloud, webutvikling, programvareutvikling, Norge, Oslo, konsulent, freelance",
+    en: "fullstack developer, Java, Python, React, Node.js, cloud, web development, software engineering, Norway, Oslo, consultant, freelance",
   };
 
   return (
     <Helmet>
       <html lang={lang} />
       <title>
-        {lang === 'no'
-          ? 'Michael Ekornrud - Fullstack-utvikler'
-          : 'Michael Ekornrud - Fullstack Developer'}
+        {lang === "no"
+          ? "Michael Ekornrud - Fullstack-utvikler"
+          : "Michael Ekornrud - Fullstack Developer"}
       </title>
       <meta name="description" content={description[lang]} />
       <meta name="keywords" content={keywords[lang]} />
@@ -716,9 +716,9 @@ function SEO({ lang }) {
       <meta
         property="og:title"
         content={
-          lang === 'no'
-            ? 'Michael Ekornrud - Fullstack-utvikler'
-            : 'Michael Ekornrud - Fullstack Developer'
+          lang === "no"
+            ? "Michael Ekornrud - Fullstack-utvikler"
+            : "Michael Ekornrud - Fullstack Developer"
         }
       />
       <meta property="og:description" content={description[lang]} />
@@ -730,9 +730,9 @@ function SEO({ lang }) {
       <meta
         name="twitter:title"
         content={
-          lang === 'no'
-            ? 'Michael Ekornrud - Fullstack-utvikler'
-            : 'Michael Ekornrud - Fullstack Developer'
+          lang === "no"
+            ? "Michael Ekornrud - Fullstack-utvikler"
+            : "Michael Ekornrud - Fullstack Developer"
         }
       />
       <meta name="twitter:description" content={description[lang]} />
@@ -754,31 +754,31 @@ function SEO({ lang }) {
       {/* Structured Data */}
       <script type="application/ld+json">
         {JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'Person',
-          name: 'Michael Ekornrud',
-          url: 'https://ekornrud.no',
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Michael Ekornrud",
+          url: "https://ekornrud.no",
           sameAs: [
-            'https://www.linkedin.com/in/ole-michael-ekornrud',
-            'https://github.com/mekornrud',
+            "https://www.linkedin.com/in/ole-michael-ekornrud",
+            "https://github.com/mekornrud",
           ],
           jobTitle:
-            lang === 'no' ? 'Fullstack-utvikler' : 'Fullstack Developer',
+            lang === "no" ? "Fullstack-utvikler" : "Fullstack Developer",
           description: description[lang],
           address: {
-            '@type': 'PostalAddress',
-            addressCountry: 'NO',
-            addressLocality: 'Oslo',
+            "@type": "PostalAddress",
+            addressCountry: "NO",
+            addressLocality: "Oslo",
           },
           knowsAbout: [
-            'Java',
-            'Python',
-            'React',
-            'Node.js',
-            'Cloud Computing',
-            'Fullstack Development',
-            'Web Development',
-            'Software Engineering',
+            "Java",
+            "Python",
+            "React",
+            "Node.js",
+            "Cloud Computing",
+            "Fullstack Development",
+            "Web Development",
+            "Software Engineering",
           ],
         })}
       </script>
@@ -787,16 +787,16 @@ function SEO({ lang }) {
 }
 
 SEO.propTypes = {
-  lang: PropTypes.oneOf(['en', 'no']).isRequired,
+  lang: PropTypes.oneOf(["en", "no"]).isRequired,
 };
 
 function App() {
-  const [lang, setLang] = useState('no');
+  const [lang, setLang] = useState("no");
   const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const savedTheme = localStorage.getItem("theme") || "dark";
     // Set theme immediately to avoid null values in tests
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    document.body.classList.toggle('dark-mode', savedTheme === 'dark');
+    document.documentElement.setAttribute("data-theme", savedTheme);
+    document.body.classList.toggle("dark-mode", savedTheme === "dark");
     return savedTheme;
   });
   const [isHeroVisible, setIsHeroVisible] = useState(true);
@@ -807,8 +807,8 @@ function App() {
   const experienceT = experience[lang];
   const certificationsT = certifications[lang] || {
     lang,
-    title: 'Loading...',
-    description: 'Loading...',
+    title: "Loading...",
+    description: "Loading...",
     categories: [],
   };
   const contactT = translations.contact[lang];
@@ -821,13 +821,13 @@ function App() {
   const certificationsRef = useRef(null);
 
   useEffect(() => {
-    document.body.classList.toggle('dark-mode', theme === 'dark');
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    document.body.classList.toggle("dark-mode", theme === "dark");
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   useEffect(() => {
-    if (typeof IntersectionObserver !== 'undefined') {
+    if (typeof IntersectionObserver !== "undefined") {
       const heroObserver = new IntersectionObserver(
         ([entry]) => {
           setIsHeroVisible(entry.isIntersecting);
@@ -852,13 +852,13 @@ function App() {
   }, []);
 
   const handleAnchorClick = (e) => {
-    const href = e.target.getAttribute('href');
-    if (href && href.startsWith('#')) {
+    const href = e.target.getAttribute("href");
+    if (href && href.startsWith("#")) {
       const id = href.slice(1);
       const target = document.getElementById(id);
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
+        target.scrollIntoView({ behavior: "smooth" });
       }
     }
   };
@@ -889,7 +889,7 @@ function App() {
             </li>
             <li>
               <a href="#certifications">
-                {lang === 'no' ? 'Sertifiseringer' : 'Certifications'}
+                {lang === "no" ? "Sertifiseringer" : "Certifications"}
               </a>
             </li>
           </ul>
