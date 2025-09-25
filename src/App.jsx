@@ -695,8 +695,8 @@ function SEO({ lang }) {
   };
 
   const keywords = {
-    no: "fullstack-utvikler, Java, Python, React, Node.js, cloud, webutvikling, programvareutvikling, Norge, Oslo, konsulent, freelance",
-    en: "fullstack developer, Java, Python, React, Node.js, cloud, web development, software engineering, Norway, Oslo, consultant, freelance",
+    no: "fullstack-utvikler, Java, Python, React, Node.js, cloud, webutvikling, programvareutvikling, Norge, Oslo, konsulent, freelance, ekornrud, Ekornrud, Spring Boot, PostgreSQL, Docker, Azure, AWS, GitHub, GitLab, data engineer, backend-utvikler, DNB, Bouvet, software engineer, Microsoft Azure, sertifiseringer, AZ-900, DP-900, DP-100, machine learning, DevOps, Jenkins, Grafana, Maven, JavaScript, HTML, CSS, system arkitektur, REST API, microservices, agile, scrum, database design, CI/CD",
+    en: "fullstack developer, Java, Python, React, Node.js, cloud, web development, software engineering, Norway, Oslo, consultant, freelance, ekornrud, Ekornrud, Spring Boot, PostgreSQL, Docker, Azure, AWS, GitHub, GitLab, data engineer, backend developer, DNB, Bouvet, software engineer, Microsoft Azure, certifications, AZ-900, DP-900, DP-100, machine learning, DevOps, Jenkins, Grafana, Maven, JavaScript, HTML, CSS, system architecture, REST API, microservices, agile, scrum, database design, CI/CD",
   };
 
   return (
@@ -770,15 +770,54 @@ function SEO({ lang }) {
             addressCountry: "NO",
             addressLocality: "Oslo",
           },
+          worksFor: {
+            "@type": "Organization",
+            name: "Bouvet Norge AS",
+          },
+          alumniOf: [
+            {
+              "@type": "EducationalOrganization",
+              name: "OsloMet – storbyuniversitetet",
+              sameAs: "https://www.oslomet.no",
+            },
+          ],
+          hasCredential: [
+            {
+              "@type": "EducationalOccupationalCredential",
+              name: "Microsoft Certified: Azure Fundamentals",
+              credentialCategory: "certification",
+              recognizedBy: {
+                "@type": "Organization",
+                name: "Microsoft",
+              },
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              name: "Microsoft Certified: Azure Data Fundamentals",
+              credentialCategory: "certification",
+              recognizedBy: {
+                "@type": "Organization",
+                name: "Microsoft",
+              },
+            },
+          ],
           knowsAbout: [
             "Java",
             "Python",
             "React",
             "Node.js",
+            "Spring Boot",
+            "PostgreSQL",
+            "Docker",
+            "Microsoft Azure",
+            "AWS",
             "Cloud Computing",
             "Fullstack Development",
             "Web Development",
             "Software Engineering",
+            "Data Engineering",
+            "DevOps",
+            "Machine Learning",
           ],
         })}
       </script>
