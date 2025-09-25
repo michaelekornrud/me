@@ -56,7 +56,7 @@ echo ""
 
 # 2. Code Formatting with Prettier
 print_step "Running Prettier code formatting..."
-if npx prettier --write "src/**/*.{js,jsx,css,scss,json,md}" --no-error-on-unmatched-pattern; then
+if npx prettier --write "../src/**/*.{js,jsx,css,scss,json,md}" --no-error-on-unmatched-pattern; then
     print_success "Code formatting completed successfully"
 else
     print_error "Prettier formatting failed"
@@ -67,12 +67,12 @@ echo ""
 
 # 2. ESLint checking and fixing
 print_step "Running ESLint checks and auto-fixes..."
-if npx eslint src/ --fix --format=compact; then
+if npx eslint ../src/ --fix --format=compact; then
     print_success "ESLint checks passed"
 else
     print_error "ESLint found issues that couldn't be auto-fixed"
     echo ""
-    print_warning "Run 'npx eslint src/' to see detailed error information"
+    print_warning "Run 'npx eslint ../src/' to see detailed error information"
     exit 1
 fi
 
