@@ -2,7 +2,7 @@ const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
-const inputDir = path.join(__dirname, 'src/images/cert');
+const inputDir = path.join(__dirname, '../src/images/cert');
 const outputDir = inputDir; // Save resized images in the same folder
 
 const sizes = [
