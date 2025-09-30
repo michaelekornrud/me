@@ -111,7 +111,7 @@ ThemeToggle.propTypes = {
 };
 
 // Hero component
-const Hero = ({ t, forwardedRef }) => {
+const Hero = ({ t, forwardedRef, lang }) => {
   return (
     <header className="hero" ref={forwardedRef}>
       <div className="hero-content hero-row">
@@ -137,9 +137,7 @@ const Hero = ({ t, forwardedRef }) => {
               <a href="#experience">{t.nav.experience}</a>
             </li>
             <li>
-              <a href="#certifications">
-                {t.lang === "no" ? "Sertifiseringer" : "Certifications"}
-              </a>
+              <a href="#certifications">{t.nav.certifications || (lang === "no" ? "Sertifiseringer" : "Certifications")}</a>
             </li>
           </ul>
         </nav>
@@ -159,8 +157,10 @@ Hero.propTypes = {
       about: PropTypes.string.isRequired,
       expertise: PropTypes.string.isRequired,
       experience: PropTypes.string.isRequired,
+      certifications: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+  lang: PropTypes.oneOf(["en", "no"]).isRequired,
 };
 
 function Expertise({ sectionRef, t }) {
@@ -747,9 +747,9 @@ function SEO({ lang }) {
       <link rel="canonical" href="https://ekornrud.no/" />
 
       {/* International SEO */}
-      <link rel="alternate" hrefLang="no" href="https://ekornrud.no/" />
-      <link rel="alternate" hrefLang="en" href="https://ekornrud.no/?lang=en" />
-      <link rel="alternate" hrefLang="x-default" href="https://ekornrud.no/" />
+      <link rel="alternate" hreflang="no" href="https://ekornrud.no/" />
+      <link rel="alternate" hreflang="en" href="https://ekornrud.no/?lang=en" />
+      <link rel="alternate" hreflang="x-default" href="https://ekornrud.no/" />
 
       {/* Structured Data */}
       <script type="application/ld+json">
@@ -830,7 +830,21 @@ SEO.propTypes = {
 };
 
 function App() {
-  const [lang, setLang] = useState("no");
+  // Determine initial language from URL ?lang=, then localStorage, fallback to 'no'
+  const getInitialLang = () => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const qp = params.get("lang");
+      if (qp === "en" || qp === "no") return qp;
+      const stored = localStorage.getItem("lang");
+      if (stored === "en" || stored === "no") return stored;
+    } catch (e) {
+      // ignore
+    }
+    return "no";
+  };
+
+  const [lang, setLang] = useState(getInitialLang);
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem("theme") || "dark";
     // Set theme immediately to avoid null values in tests
@@ -864,6 +878,27 @@ function App() {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
+
+  useEffect(() => {
+    // Persist and sync language in URL without causing a full page reload
+    try {
+      localStorage.setItem("lang", lang);
+      const params = new URLSearchParams(window.location.search);
+      if (lang === "no") {
+        // remove lang param for default language
+        params.delete("lang");
+      } else {
+        params.set("lang", lang);
+      }
+      const query = params.toString();
+      const newUrl = window.location.pathname + (query ? `?${query}` : "") + window.location.hash;
+      if (newUrl !== window.location.pathname + window.location.search + window.location.hash) {
+        window.history.replaceState(null, "", newUrl);
+      }
+    } catch (e) {
+      // ignore storage/history errors
+    }
+  }, [lang]);
 
   useEffect(() => {
     if (typeof IntersectionObserver !== "undefined") {
@@ -912,7 +947,7 @@ function App() {
         <ThemeToggle theme={theme} setTheme={setTheme} t={themeT} />
       </div>
       <div className="header-container">
-        <Hero t={heroT} forwardedRef={heroRef} />
+        <Hero t={heroT} forwardedRef={heroRef} lang={lang} />
       </div>
       {!isHeroVisible && (
         <nav className="sticky-nav">
@@ -928,7 +963,7 @@ function App() {
             </li>
             <li>
               <a href="#certifications">
-                {lang === "no" ? "Sertifiseringer" : "Certifications"}
+                {heroT.nav.certifications || (lang === "no" ? "Sertifiseringer" : "Certifications")}
               </a>
             </li>
           </ul>

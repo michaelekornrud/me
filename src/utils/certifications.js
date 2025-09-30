@@ -102,7 +102,7 @@ const certifications = {
   },
   no: {
     lang: "no",
-    title: "Sertifiseringer & Kredentialer",
+    title: "Sertifiseringer",
     description:
       "Microsoft Azure-sertifiseringer og tekniske kredentialer som demonstrerer ekspertise innen sky-teknologier og moderne utviklingspraksis.",
     categories: [

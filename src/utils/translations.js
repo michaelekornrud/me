@@ -96,6 +96,7 @@ const translations = {
         about: "About",
         experience: "Experience",
         contact: "Contact",
+        certifications: "Certifications",
       },
     },
     no: {
@@ -107,6 +108,7 @@ const translations = {
         about: "Om meg",
         experience: "Erfaring",
         contact: "Kontakt",
+        certifications: "Sertifiseringer",
       },
     },
   },
