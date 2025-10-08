@@ -650,7 +650,7 @@ function Footer() {
       </div>
       <small>Org nr: 827 157 562</small>
       <br />
-      <small>&copy; 2024 Michael Ekornrud - All rights reserved. </small>
+      <small>&copy; 2025 Michael Ekornrud - All rights reserved. </small>
       <br />
     </footer>
   );
