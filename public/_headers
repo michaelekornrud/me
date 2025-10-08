@@ -37,3 +37,8 @@
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+
+# Health endpoint (static JSON file without extension)
+/health:
+  Content-Type: application/json
+  Cache-Control: no-store
