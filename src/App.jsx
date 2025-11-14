@@ -165,7 +165,7 @@ Hero.propTypes = {
   lang: PropTypes.oneOf(["en", "no"]).isRequired,
 };
 
-function Expertise({ sectionRef, t }) {
+function Expertise({ sectionRef, t, technologyDescriptions, lang }) {
   return (
     <section
       id="expertise"
@@ -180,7 +180,12 @@ function Expertise({ sectionRef, t }) {
             <h3>{item.title}</h3>
             <div className="technology-list">
               {item.technologies.map((tech) => (
-                <span key={tech} className="technology-tag">
+                <span
+                  key={tech}
+                  className="technology-tag"
+                  data-tooltip={technologyDescriptions[lang][tech] || tech}
+                  aria-label={technologyDescriptions[lang][tech] || tech}
+                >
                   {tech}
                 </span>
               ))}
@@ -207,6 +212,8 @@ Expertise.propTypes = {
       }),
     ).isRequired,
   }).isRequired,
+  technologyDescriptions: PropTypes.object.isRequired,
+  lang: PropTypes.oneOf(["en", "no"]).isRequired,
 };
 
 function About({ sectionRef, t, contactT }) {
@@ -233,13 +240,13 @@ function About({ sectionRef, t, contactT }) {
             <p>{contactT.desc}</p>
             <div className="contact-details">
               <div className="contact-item">
-                <span className="contact-label">{contactT.email}:</span>
+                <span className="contact-label">{contactT.email}: </span>
                 <a href={`mailto: ${contactT.emailValue}`}>
                   {contactT.emailValue}
                 </a>
               </div>
               <div className="contact-item">
-                <span className="contact-label">{contactT.phone}:</span>
+                <span className="contact-label">{contactT.phone}: </span>
                 <a href={`tel: ${contactT.phoneValue.replace(/\s/g, "")}`}>
                   {contactT.phoneValue}
                 </a>
@@ -869,6 +876,7 @@ function App() {
   };
   const contactT = translations.contact[lang];
   const themeT = translations.theme[lang];
+  const technologyDescriptions = translations.technologyDescriptions;
 
   const heroRef = useRef(null);
   const expertiseRef = useRef(null);
@@ -981,7 +989,12 @@ function App() {
       )}
       <main>
         <About sectionRef={aboutRef} t={aboutT} contactT={contactT} />
-        <Expertise sectionRef={expertiseRef} t={expertiseT} />
+        <Expertise
+          sectionRef={expertiseRef}
+          t={expertiseT}
+          technologyDescriptions={technologyDescriptions}
+          lang={lang}
+        />
         <Experience sectionRef={experienceRef} t={experienceT} />
         <Certifications sectionRef={certificationsRef} t={certificationsT} />
       </main>
