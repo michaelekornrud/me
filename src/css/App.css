@@ -563,6 +563,39 @@ a:hover {
   text-decoration: underline;
 }
 
+body.dark-mode a {
+  color: #e0e6ed;
+}
+body.dark-mode a:hover {
+  color: #fff;
+}
+
+/* Specific styling for contact (email & phone) links */
+.contact-details a {
+  color: #0645ad; /* classic link blue */
+  text-decoration: underline;
+}
+.contact-details a:visited {
+  color: #0b0080; /* classic visited purple/blue */
+}
+.contact-details a:hover,
+.contact-details a:focus {
+  color: #3366cc;
+  text-decoration: underline;
+}
+
+/* Dark mode variants for contact links */
+body.dark-mode .contact-details a {
+  color: #4da3ff;
+}
+body.dark-mode .contact-details a:visited {
+  color: #82c3ff;
+}
+body.dark-mode .contact-details a:hover,
+body.dark-mode .contact-details a:focus {
+  color: #8abff7;
+}
+
 .top-right-controls {
   position: absolute;
   top: 20px;

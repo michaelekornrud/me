@@ -233,13 +233,13 @@ function About({ sectionRef, t, contactT }) {
             <p>{contactT.desc}</p>
             <div className="contact-details">
               <div className="contact-item">
-                <span className="contact-label">{contactT.email}:</span>
+                <span className="contact-label">{contactT.email}: </span>
                 <a href={`mailto: ${contactT.emailValue}`}>
                   {contactT.emailValue}
                 </a>
               </div>
               <div className="contact-item">
-                <span className="contact-label">{contactT.phone}:</span>
+                <span className="contact-label">{contactT.phone}: </span>
                 <a href={`tel: ${contactT.phoneValue.replace(/\s/g, "")}`}>
                   {contactT.phoneValue}
                 </a>
