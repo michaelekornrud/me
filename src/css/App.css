@@ -211,10 +211,12 @@ img {
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
   margin-bottom: 5px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  
+
   /* Consistent tooltip dimensions */
   width: 150px;
   min-height: 32px;
@@ -222,7 +224,7 @@ img {
   white-space: normal;
   text-align: center;
   line-height: 1.3;
-  
+
   /* Better text handling for consistent shape */
   overflow: hidden;
   display: flex;
@@ -235,7 +237,7 @@ img {
 
 /* Tooltip arrow */
 .technology-tag::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 100%;
   left: 50%;
@@ -245,7 +247,9 @@ img {
   z-index: 1001;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .technology-tag:hover::after,

@@ -180,8 +180,8 @@ function Expertise({ sectionRef, t, technologyDescriptions, lang }) {
             <h3>{item.title}</h3>
             <div className="technology-list">
               {item.technologies.map((tech) => (
-                <span 
-                  key={tech} 
+                <span
+                  key={tech}
                   className="technology-tag"
                   data-tooltip={technologyDescriptions[lang][tech] || tech}
                   aria-label={technologyDescriptions[lang][tech] || tech}
@@ -989,11 +989,11 @@ function App() {
       )}
       <main>
         <About sectionRef={aboutRef} t={aboutT} contactT={contactT} />
-        <Expertise 
-          sectionRef={expertiseRef} 
-          t={expertiseT} 
-          technologyDescriptions={technologyDescriptions} 
-          lang={lang} 
+        <Expertise
+          sectionRef={expertiseRef}
+          t={expertiseT}
+          technologyDescriptions={technologyDescriptions}
+          lang={lang}
         />
         <Experience sectionRef={experienceRef} t={experienceT} />
         <Certifications sectionRef={certificationsRef} t={certificationsT} />

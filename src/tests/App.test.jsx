@@ -29,6 +29,32 @@ jest.mock("../utils/translations", () => ({
       },
     },
   },
+  technologyDescriptions: {
+    en: {
+      JavaScript: "Dynamic programming language for web development",
+      React: "Popular library for building user interfaces",
+      HTML: "Standard markup language for web pages",
+      CSS: "Style sheet language for designing web pages",
+      PHP: "Server-side scripting language for web development",
+      Java: "Enterprise-grade object-oriented programming language",
+      Python: "Versatile programming language for various applications",
+      PostgreSQL: "Advanced open-source relational database",
+      MongoDB: "Popular NoSQL document database",
+      MySQL: "Widely-used open-source relational database",
+    },
+    no: {
+      JavaScript: "Dynamisk programmeringsspråk for webutvikling",
+      React: "Populært bibliotek for å bygge brukergrensesnitt",
+      HTML: "Standard markup-språk for nettsider",
+      CSS: "Stilark-språk for design av nettsider",
+      PHP: "Server-side skriptspråk for webutvikling",
+      Java: "Objektorientert programmeringsspråk for enterprise-løsninger",
+      Python: "Allsidig programmeringsspråk for ulike applikasjoner",
+      PostgreSQL: "Avansert open-source relasjonsdatabase",
+      MongoDB: "Populær NoSQL dokumentdatabase",
+      MySQL: "Mye brukt open-source relasjonsdatabase",
+    },
+  },
   theme: {
     en: {
       toggleLabel: "Toggle dark/light mode",
