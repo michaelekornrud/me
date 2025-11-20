@@ -2,10 +2,15 @@
 
 /* Forbedret typografi for alle skjermstørrelser */
 html {
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+  /* Use font-size instead of text-size-adjust for better cross-browser support */
+  font-size: 16px;
+}
+
+/* Responsiv typografi med clamp() for bedre skalering */
+@media (max-width: 768px) {
+  html {
+    font-size: clamp(14px, 4vw, 16px);
+  }
 }
 
 /* Bedre tekstrendering */
