@@ -428,7 +428,7 @@ body.dark-mode .sticky-nav a:hover {
     padding: 1.5rem;
     margin: 1rem;
     border-radius: 8px;
-    min-height: auto;
+    min-height: 0;
     width: calc(100% - 2rem);
     box-sizing: border-box;
   }
@@ -495,7 +495,7 @@ body.dark-mode .sticky-nav a:hover {
 
   .hero {
     padding: 2rem 0;
-    min-height: auto;
+    min-height: 0;
   }
 
   .hero-text {
@@ -541,7 +541,7 @@ body.dark-mode .sticky-nav a:hover {
   }
 
   .header-container {
-    min-height: auto;
+    min-height: 0;
   }
 
   .hero {
@@ -862,7 +862,7 @@ body.dark-mode .scroll-to-top:hover {
   flex-shrink: 0;
   position: relative;
   z-index: 2;
-  min-height: auto;
+  min-height: 0;
   display: flex;
   flex-direction: column;
 }
