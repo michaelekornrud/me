@@ -12,7 +12,7 @@ const sizes = [
 ];
 
 fs.readdirSync(inputDir).forEach(file => {
-  if (/\.(webp|jpg|jpeg|png|svg)$/i.test(file)) {
+  if (/\.(jpg|jpeg|png|svg)$/i.test(file)) {
     sizes.forEach(size => {
       sharp(path.join(inputDir, file))
         .resize(size.width)
