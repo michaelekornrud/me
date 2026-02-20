@@ -89,7 +89,8 @@ const certifications = {
             date: "Feb 18, 2026",
             validUntil: "Feb 18, 2029",
             credentialId: "5c5fcc31f9604dc690205673b057da2f",
-            verificationUrl: "https://www.credly.com/badges/dda8548c-d9a4-408c-975f-58106b589e18/public_url",
+            verificationUrl:
+              "https://www.credly.com/badges/dda8548c-d9a4-408c-975f-58106b589e18/public_url",
             description:
               "Validates the ability to deploy applications, monitor operations, and manage enterprise solutions on Google Cloud.",
             skills: [
@@ -209,7 +210,8 @@ const certifications = {
             date: "Feb 18, 2026",
             validUntil: "Feb 18, 2029",
             credentialId: "5c5fcc31f9604dc690205673b057da2f",
-            verificationUrl: "https://www.credly.com/badges/dda8548c-d9a4-408c-975f-58106b589e18/public_url",
+            verificationUrl:
+              "https://www.credly.com/badges/dda8548c-d9a4-408c-975f-58106b589e18/public_url",
             description:
               "Validerer evnen til å distribuere applikasjoner, overvåke operasjoner og administrere bedriftsløsninger på Google Cloud.",
             skills: [
