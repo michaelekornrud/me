@@ -1,12 +1,11 @@
 import az900Logo from "../images/cert/az-900-small.webp";
 import dp100Logo from "../images/cert/dp-100-small.webp";
+import aceLogo from "../images/cert/gcp_ace-small.webp";
 
 const certifications = {
   en: {
     lang: "en",
     title: "Certifications & Credentials",
-    description:
-      "Microsoft Azure certifications and technical credentials demonstrating expertise in cloud technologies and modern development practices.",
     categories: [
       {
         title: "Microsoft Azure Certifications",
@@ -80,6 +79,31 @@ const certifications = {
           },
         ],
       },
+      {
+        title: "Google Cloud Certifications",
+        certifications: [
+          {
+            name: "Google Cloud Certified: Associate Cloud Engineer",
+            code: "ACE",
+            issuer: "Google",
+            date: "Feb 18, 2026",
+            validUntil: "Feb 18, 2029",
+            credentialId: "5c5fcc31f9604dc690205673b057da2f",
+            verificationUrl:
+              "https://www.credly.com/badges/dda8548c-d9a4-408c-975f-58106b589e18/public_url",
+            description:
+              "Validates the ability to deploy applications, monitor operations, and manage enterprise solutions on Google Cloud.",
+            skills: [
+              "Google Cloud Platform",
+              "Cloud Deployment",
+              "Monitoring",
+              "Management",
+            ],
+            logo: aceLogo,
+            status: "active",
+          },
+        ],
+      },
       /*{
         title: 'Microsoft Applied Skills',
         certifications: [
@@ -103,8 +127,6 @@ const certifications = {
   no: {
     lang: "no",
     title: "Sertifiseringer",
-    description:
-      "Microsoft Azure-sertifiseringer og tekniske kredentialer som demonstrerer ekspertise innen sky-teknologier og moderne utviklingspraksis.",
     categories: [
       {
         title: "Microsoft Azure Sertifiseringer",
@@ -175,6 +197,31 @@ const certifications = {
             ],
             logo: dp100Logo,
             status: "pending",
+          },
+        ],
+      },
+      {
+        title: "Google Cloud Sertifiseringer",
+        certifications: [
+          {
+            name: "Google Cloud Certified: Associate Cloud Engineer",
+            code: "ACE",
+            issuer: "Google",
+            date: "Feb 18, 2026",
+            validUntil: "Feb 18, 2029",
+            credentialId: "5c5fcc31f9604dc690205673b057da2f",
+            verificationUrl:
+              "https://www.credly.com/badges/dda8548c-d9a4-408c-975f-58106b589e18/public_url",
+            description:
+              "Validerer evnen til å distribuere applikasjoner, overvåke operasjoner og administrere bedriftsløsninger på Google Cloud.",
+            skills: [
+              "Google Cloud Platform",
+              "Cloud Deployment",
+              "Monitoring",
+              "Management",
+            ],
+            logo: aceLogo,
+            status: "active",
           },
         ],
       },

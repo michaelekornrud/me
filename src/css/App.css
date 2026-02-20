@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 html,
 body {
   overflow-x: hidden;
@@ -6,7 +8,7 @@ body {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   margin: 0;
   padding: 0;
   background: #f7f7f7;
@@ -88,9 +90,9 @@ header {
 }
 
 .hero-logo {
-  max-width: 290px;
-  width: 60vw;
-  min-width: 120px;
+  max-width: 200px;
+  width: 40vw;
+  min-width: 100px;
   height: auto;
   flex-shrink: 0;
 }
@@ -671,12 +673,12 @@ body.dark-mode .contact-details a:focus {
 }
 
 .top-right-controls {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 20px;
   display: flex;
   gap: 0.5rem;
-  z-index: 20;
+  z-index: 1000;
 }
 
 @media (max-width: 480px) {

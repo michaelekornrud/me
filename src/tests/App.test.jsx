@@ -234,7 +234,7 @@ describe("App Component", () => {
   test("renders copyright text", () => {
     renderApp();
     expect(
-      screen.getByText(/© 2024 Michael Ekornrud - All rights reserved./),
+      screen.getByText(/© 2026 Michael Ekornrud - All rights reserved./),
     ).toBeInTheDocument();
   });
 
@@ -273,14 +273,14 @@ describe("Language Toggle", () => {
 
   test("displays correct flag based on language", () => {
     renderApp();
-    expect(screen.getByAltText("Norwegian flag")).toBeInTheDocument();
+    expect(screen.getByLabelText("Norwegian flag")).toBeInTheDocument();
 
     const languageButton = screen.getByRole("button", {
       name: /Toggle language/i,
     });
     fireEvent.click(languageButton);
 
-    expect(screen.getByAltText("UK flag")).toBeInTheDocument();
+    expect(screen.getByLabelText("United Kingdom flag")).toBeInTheDocument();
   });
 });
 

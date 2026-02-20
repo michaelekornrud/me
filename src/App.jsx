@@ -6,6 +6,7 @@ import "./css/mobile-improvements.css";
 import translations from "./utils/translations";
 import experience from "./utils/experience";
 import certifications from "./utils/certifications";
+import LazyImage from "./components/LazyImage";
 import githubLogo from "./images/github-emoji.webp";
 import githubSmall from "./images/github-emoji-small.webp";
 import githubMedium from "./images/github-emoji-medium.webp";
@@ -14,13 +15,6 @@ import linkedinLogo from "./images/linkedin-icon.webp";
 import linkedinSmall from "./images/linkedin-icon-small.webp";
 import linkedinMedium from "./images/linkedin-icon-medium.webp";
 import linkedinLarge from "./images/linkedin-icon-large.webp";
-import norwaySmall from "./images/norway-small.webp";
-import norwayMedium from "./images/norway-medium.webp";
-import norwayLarge from "./images/norway-large.webp";
-import norwayFlag from "./images/norway.webp";
-import ukSmall from "./images/uk-small.webp";
-import ukMedium from "./images/uk-medium.webp";
-import ukLarge from "./images/uk.webp";
 import fullLogo from "./images/full-logo.webp";
 import fullLogoSmall from "./images/full-logo-small.webp";
 import fullLogoMedium from "./images/full-logo-medium.webp";
@@ -40,24 +34,20 @@ export function LanguageToggle({ lang, setLang }) {
     >
       {lang === "no" ? (
         <>
-          <img
-            src={norwayFlag}
-            srcSet={`${norwaySmall} 600w, ${norwayMedium} 1200w, ${norwayLarge} 2000w`}
-            sizes="(max-width: 600px) 24px, (max-width: 1200px) 32px, 48px"
-            alt="Norwegian flag"
-            className="flag-icon icon-margin"
-          />
+          <span role="img" aria-label="Norwegian flag" className="icon-margin">
+            🇳🇴
+          </span>
           Norsk
         </>
       ) : (
         <>
-          <img
-            src={ukLarge}
-            srcSet={`${ukSmall} 600w, ${ukMedium} 1200w, ${ukLarge} 2000w`}
-            sizes="(max-width: 600px) 24px, (max-width: 1200px) 32px, 48px"
-            alt="UK flag"
-            className="flag-icon icon-margin"
-          />
+          <span
+            role="img"
+            aria-label="United Kingdom flag"
+            className="icon-margin"
+          >
+            🇬🇧
+          </span>
           English
         </>
       )}
@@ -223,10 +213,10 @@ function About({ sectionRef, t, contactT }) {
     <section id="about" ref={sectionRef} aria-labelledby="about-heading">
       <h2 id="about-heading">{t.title}</h2>
       <div className="about-content">
-        <img
+        <LazyImage
           src={mekImage}
           srcSet={`${mekSmall} 600w, ${mekMedium} 1200w, ${mekLarge} 2000w`}
-          sizes="(max-width: 600px) 80px, (max-width: 1200px) 120px, 200px"
+          sizes="(max-width: 600px) 80px, (max-width: 1200px) 120px, 2000px"
           alt="Michael Ekornrud"
           className="about-image"
         />
@@ -258,7 +248,7 @@ function About({ sectionRef, t, contactT }) {
                   rel="noopener noreferrer"
                   style={{ display: "inline-flex", alignItems: "center" }}
                 >
-                  <img
+                  <LazyImage
                     src={linkedinLogo}
                     srcSet={`${linkedinSmall} 600w, ${linkedinMedium} 1200w, ${linkedinLarge} 2000w`}
                     sizes="(max-width: 600px) 22px, (max-width: 1200px) 32px, 48px"
@@ -283,7 +273,7 @@ function About({ sectionRef, t, contactT }) {
                     alignItems: "center",
                   }}
                 >
-                  <img
+                  <LazyImage
                     src={githubLogo}
                     srcSet={`${githubSmall} 600w, ${githubMedium} 1200w, ${githubLarge} 2000w`}
                     sizes="(max-width: 600px) 22px, (max-width: 1200px) 32px, 48px"
@@ -486,7 +476,6 @@ function Certifications({ sectionRef, t }) {
       aria-labelledby="certifications-heading"
     >
       <h2 id="certifications-heading">{t.title}</h2>
-      <p>{t.description}</p>
       <div className="certifications-categories">
         {t.categories.map((category, categoryIndex) => (
           <div key={categoryIndex} className="certification-category">
@@ -496,9 +485,10 @@ function Certifications({ sectionRef, t }) {
                 <div key={certIndex} className="certification-card">
                   <div className="certification-header">
                     <div className="certification-logo">
-                      <img
+                      <LazyImage
                         src={cert.logo}
                         alt={cert.name}
+                        className="certification-logo"
                         style={{ height: "2.5em", width: "2.5em" }}
                       />
                     </div>
@@ -618,7 +608,7 @@ function Footer() {
           rel="noopener noreferrer"
           style={{ display: "inline-flex", alignItems: "center" }}
         >
-          <img
+          <LazyImage
             src={linkedinLogo}
             alt="LinkedIn"
             style={{
@@ -641,7 +631,7 @@ function Footer() {
             alignItems: "center",
           }}
         >
-          <img
+          <LazyImage
             src={githubLogo}
             alt="GitHub"
             style={{
@@ -657,7 +647,7 @@ function Footer() {
       </div>
       <small>Org nr: 827 157 562</small>
       <br />
-      <small>&copy; 2025 Michael Ekornrud - All rights reserved. </small>
+      <small>&copy; 2026 Michael Ekornrud - All rights reserved. </small>
       <br />
     </footer>
   );
